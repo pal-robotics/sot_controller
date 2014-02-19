@@ -1,0 +1,93 @@
+0.000 [ Info   ][Logger] No ORO_LOGLEVEL environment variable set.
+0.000 [ Info   ][Logger]  OROCOS version '2.7.0' compiled with GCC 4.6.3. Running in GNU/Linux.
+0.000 [ Info   ][Logger] Orocos Logging Activated at level : [ Warning] ( 4 ) 
+0.000 [ Info   ][Logger] Reference System Time is : 1390325023706762389 ticks ( 1.39033e+09 seconds ).
+0.000 [ Info   ][Logger] Logging is relative to this time.
+0.017 [ Info   ][Logger] Console logging disabled
+0.017 [ Info   ][Logger] No RTT_COMPONENT_PATH set. Using default: /opt/ros/hydro/lib/orocos
+0.017 [ Info   ][Logger] plugin 'rtt' not loaded before.
+0.017 [ Info   ][Logger] Loading plugin libraries from directory /opt/ros/hydro/lib/orocos/gnulinux/./plugins ...
+0.017 [ Info   ][Logger] Loaded RTT Service 'marshalling' from 'rtt-marshalling'
+0.017 [ Info   ][Logger] Loaded RTT Service 'scripting' from 'rtt-scripting'
+0.017 [ Info   ][Logger] typekit 'rtt' not loaded before.
+0.017 [ Info   ][Logger] Loading typekit libraries from directory /opt/ros/hydro/lib/orocos/gnulinux/./types ...
+0.042 [ Info   ][TypekitRepository::Import] Loading Transport mqueue://rtt-types.
+0.042 [ Info   ][Logger] Loaded RTT TypeKit/Transport 'rtt-mqueue-transport' from 'rtt-transport-mqueue'
+0.055 [ Info   ][TypekitRepository::Import] Loading Typekit rtt-types.
+0.055 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for int
+0.055 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for uint
+0.055 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for double
+0.055 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for float
+0.055 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for char
+0.055 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for bool
+0.055 [ Info   ][TypekitRepository::Import] Registered new 'mqueue' transport for array
+0.055 [ Info   ][Logger] Loaded RTT TypeKit/Transport 'rtt-types' from 'rtt-typekit'
+0.207 [ Info   ][TypekitRepository::Import] Loading Transport CORBA://rtt-types.
+0.207 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for ConnPolicy
+0.207 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for TaskContext
+0.207 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for array
+0.207 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for bool
+0.207 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for char
+0.207 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for double
+0.208 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for float
+0.208 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for int
+0.208 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for string
+0.208 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for uint
+0.208 [ Info   ][TypekitRepository::Import] Registered new 'CORBA' transport for void
+0.208 [ Info   ][Logger] Loaded RTT TypeKit/Transport 'rtt-corba-types' from 'rtt-transport-corba'
+0.208 [ Info   ][Logger] No RTT_COMPONENT_PATH set. Using default: /opt/ros/hydro/lib/orocos
+0.208 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='Deployer'
+0.208 [ Info   ][Deployer] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 255 and period 0 (PID= 11168 ).
+0.208 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='GlobalEngine'
+0.208 [ Info   ][GlobalEngine] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 255 and period 0 (PID= 11169 ).
+0.209 [ Info   ][Logger] No site file was found. Importing 'ocl' by default.
+0.209 [ Info   ][import] Importing directory /opt/ros/hydro/lib/orocos/gnulinux/ocl ...
+0.211 [ Info   ][import] Loaded component type 'OCL::HelloWorld'
+0.213 [ Info   ][import] Loaded multi component library '/opt/ros/hydro/lib/orocos/gnulinux/ocl/liborocos-ocl-reporting-gnulinux.so'
+0.218 [ Info   ][import] Loaded multi component library '/opt/ros/hydro/lib/orocos/gnulinux/ocl/liborocos-ocl-logging-gnulinux.so'
+0.220 [ Info   ][import] Loaded component type 'OCL::LuaTLSFComponent'
+0.221 [ Info   ][import] Loaded multi component library '/opt/ros/hydro/lib/orocos/gnulinux/ocl/liborocos-ocl-common-gnulinux.so'
+0.222 [ Info   ][import] Loaded component type 'OCL::LuaComponent'
+0.224 [ Info   ][import] Loaded multi component library '/opt/ros/hydro/lib/orocos/gnulinux/ocl/liborocos-ocl-timer-gnulinux.so'
+0.296 [ Info   ][import] Loaded multi component library '/opt/ros/hydro/lib/orocos/gnulinux/ocl/liborocos-ocl-reporting-netcdf-gnulinux.so'
+0.296 [ Info   ][import] Loaded component type 'OCL::NetcdfReporting'
+0.296 [ Info   ][import] Loading typekit libraries from directory /opt/ros/hydro/lib/orocos/gnulinux/ocl/types ...
+0.300 [ Info   ][TypekitRepository::Import] Loading Typekit OCLTypekit.
+0.300 [ Info   ][import] Loaded RTT TypeKit/Transport 'OCLTypekit' from 'ocl'
+0.300 [ Info   ][import] Loading plugin libraries from directory /opt/ros/hydro/lib/orocos/gnulinux/ocl/plugins ...
+0.300 [ Info   ][import] Loaded RTT Service 'Lua' from 'rttlua-plugin'
+0.301 [ Info   ][import] Loaded RTT Service 'LuaTLSF' from 'rttlua-tlsf-plugin'
+0.302 [ Info   ][import] Loaded RTT Service 'os' from 'os'
+0.303 [ Info   ][import] Loaded RTT Service 'print' from 'print'
+0.303 [ Info   ][Logger] Loading Service or Plugin scripting in TaskContext Deployer
+0.303 [ Info   ][Logger] Found complete interface of requested service 'scripting'
+0.304 [ Info   ][Logger] Running Script /home/student/branches_svn/STACK_OF_TASKS/stacks/reem_robot/reem_hardware_tests/config/dummy_act_mgr_test.ops ...
+0.319 [ ERROR  ][import] No such package or directory found in search path: rtt_rosnode. Search path is: 
+0.319 [ ERROR  ][import] /opt/ros/hydro/lib/orocos:.
+0.319 [ ERROR  ][import] /opt/ros/hydro/lib/orocos/rtt_rosnode
+0.319 [ ERROR  ][import] /opt/ros/hydro/lib/orocos/gnulinux/rtt_rosnode
+0.319 [ ERROR  ][import] ./rtt_rosnode
+0.319 [ ERROR  ][import] ./gnulinux/rtt_rosnode
+0.320 [ ERROR  ][import] No such package or directory found in search path: reem_hardware_tests. Search path is: 
+0.320 [ ERROR  ][import] /opt/ros/hydro/lib/orocos:.
+0.320 [ ERROR  ][import] /opt/ros/hydro/lib/orocos/reem_hardware_tests
+0.320 [ ERROR  ][import] /opt/ros/hydro/lib/orocos/gnulinux/reem_hardware_tests
+0.320 [ ERROR  ][import] ./reem_hardware_tests
+0.320 [ ERROR  ][import] ./gnulinux/reem_hardware_tests
+0.321 [ ERROR  ][loadComponent] Unable to create Orocos Component 'reem_hardware::DummyActuatorsManager': unknown component type.
+0.322 [ ERROR  ][ScriptingService] Can't create Activity: component actuatorsMgr not found.
+0.324 [ ERROR  ][import] No such package or directory found in search path: reem_hardware. Search path is: 
+0.324 [ ERROR  ][import] /opt/ros/hydro/lib/orocos:.
+0.324 [ ERROR  ][import] /opt/ros/hydro/lib/orocos/reem_hardware
+0.324 [ ERROR  ][import] /opt/ros/hydro/lib/orocos/gnulinux/reem_hardware
+0.324 [ ERROR  ][import] ./reem_hardware
+0.324 [ ERROR  ][import] ./gnulinux/reem_hardware
+0.325 [ ERROR  ][loadComponent] Unable to create Orocos Component 'reem_hardware::ReemHardware': unknown component type.
+0.326 [ ERROR  ][ScriptingService] Can't create Activity: component robot_hw not found.
+0.327 [ ERROR  ][addPeer] No such peer: robot_hw
+0.328 [ ERROR  ][connectPorts] robot_hw could not be found.
+0.329 [ ERROR  ][connectServices] robot_hw could not be found.
+0.331 [ ERROR  ][ScriptingService] /home/student/branches_svn/STACK_OF_TASKS/stacks/reem_robot/reem_hardware_tests/config/dummy_act_mgr_test.ops :Parse error at line 28: Service or Task "Deployer" has no Peer or Service ros (or Deployer was not found at all).
+0.331 [ Info   ][Thread] Creating Thread for scheduler=ORO_SCHED_OTHER, priority=1, CPU affinity=0, with name='TaskBrowser'
+0.331 [ Info   ][TaskBrowser] Thread created with scheduler type 'ORO_SCHED_OTHER', priority 0, cpu affinity 255 and period 0 (PID= 11170 ).
+0.332 [ Info   ][Logger] Entering Task Deployer

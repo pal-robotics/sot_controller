@@ -1,0 +1,3 @@
+<launch>
+	<node name="floor_frame_publisher" pkg="sot_controller" type="floor_frame_publisher.py" ns="sot_controller" output="screen"/>
+</launch>

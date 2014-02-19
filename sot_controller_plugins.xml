@@ -1,0 +1,9 @@
+<library path="lib/libsot_controller">
+
+  <class name="sot_controller/SotController" type="sot_controller::SotController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      Hurraaaay Gennaro.
+    </description>
+  </class>
+
+</library>

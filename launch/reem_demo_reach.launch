@@ -1,0 +1,7 @@
+<launch>
+	<!-- start reem simulation and the sot controller (No Gazebo) -->
+  <include file="$(find sot_controller)/launch/dummy_act_mgr_test_sot_reem.launch" />
+	
+	<!-- fire up your favourite demo! -->
+  <node name="run_command" pkg="dynamic_graph_bridge" type="run_command" ns="sot_controller" args="$(find sot_controller)/python_code/demo/demo_reach.py" output="screen"/>
+</launch>

@@ -1,0 +1,25 @@
+<launch>
+	<!-- start reem simulation and the sot controller -->
+	<!--<include file="$(find sot_controller)/launch/dummy_act_mgr_test_sot_reem.launch" />-->
+
+  	<!-- start the trj publisher -->
+	<include file="$(find trj_publisher)/launch/trj_publisher.launch" />
+	
+	<arg name="ref_frame" value="base_link" />
+	<node pkg="sot_filters" type="sot_filters" name="right_wrist_filter" args="$(arg ref_frame) /sot_controller/arm_right_tool_joint /sot_filters/right_wrist">
+		<remap from="/right_wrist_filter/transform_stamped" to="/hand_pose_publisher/right_hand_ref_pose" /> <!-- INPUT -->
+	</node>
+	<node pkg="sot_filters" type="sot_filters" name="left_wrist_filter" args="$(arg ref_frame) /sot_controller/arm_left_tool_joint /sot_filters/left_wrist">
+		<remap from="/left_wrist_filter/transform_stamped" to="/hand_pose_publisher/left_hand_ref_pose" /> <!-- INPUT -->
+	</node>
+	<node pkg="sot_filters" type="sot_filters" name="gaze_filter" args="$(arg ref_frame) /sot_controller/camera_joint /sot_filters/gaze">
+		<remap from="/gaze_filter/vector_stamped" to="/hand_pose_publisher/head_ref_point" /> <!-- INPUT -->
+	</node>
+
+	<rosparam param="sot_rviz_marker_listener/frameid">floor_link</rosparam>
+  	<node name="rviz_marker" pkg="rviz_marker" type="sot_listener" />
+	
+	<!-- fire up your favourite demo! -->
+	<node name="run_command" pkg="dynamic_graph_bridge" type="run_command" ns="sot_controller" args="$(find sot_controller)/python_code/demo/demo_collision_dynamic.py" output="screen"/>
+
+</launch>

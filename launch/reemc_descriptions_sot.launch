@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- Load the robot descriptions on the parameter server -->
+<launch>
+  <!-- Robot model with collision cylinder placed on the hands -->
+  <include file="$(find reemc_description_sot)/robots/upload_reemc_collision.launch" />
+  
+  <!-- SOT Robot model (no hands) -->
+  <include file="$(find reemc_description_sot)/robots/upload_reemc_no_hands.launch" ns="sot_controller"/>
+  
+  <!-- Initial freeflyer pose -->
+  <rosparam param="ffpose" ns="sot_controller">[0.0, 0.0, 0.849, 0.0, 0.0, 0.0]</rosparam>
+</launch>

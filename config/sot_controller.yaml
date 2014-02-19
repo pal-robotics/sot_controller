@@ -1,0 +1,2 @@
+sot_controller:
+  type: "sot_controller/SotController"
