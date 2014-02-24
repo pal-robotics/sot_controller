@@ -52,7 +52,7 @@ const std::string SotController::LOG_PYTHON="/tmp/sot_controller.out";
 
 SotController::SotController():
     interpreter_ (),
-    device_ (new SotDevice("robot_device",10)) {}
+    device_ (new SotDevice("robot_device",1)) {}
 
 
 SotController::~SotController() {

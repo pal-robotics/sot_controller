@@ -90,7 +90,7 @@ SotDevice::SotDevice(const std::string& entityName, const std::size_t num_increm
     self_collision_(false),
     sleepTime_(0),
     debugCounter(0),
-    r_(1000)
+    r_(100)
 {
     // Register signals into the entity.
     signalRegistration(velocitySOUT);

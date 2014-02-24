@@ -128,13 +128,13 @@ plug(entFCL.arm_right_3_jointtorso_1_joint, taskDAMP.task.p1_arm_right_3_joint)
 plug(entFCL.torso_1_jointarm_right_3_joint, taskDAMP.task.p2_arm_right_3_joint)
 plug(dynOP3.jacobian, taskDAMP.task.jVel_arm_right_3_joint)
 
-#createRosImport('vector3', entFCL.torso_1_jointarm_right_3_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_3_joint')
-#createRosImport('vector3', entFCL.torso_1_jointarm_right_5_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_5_joint')
-#createRosImport('vector3', entFCL.torso_1_jointarm_right_7_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_7_joint')
+createRosImport('matrixHomo', entFCL.torso_1_jointarm_right_3_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_3_joint')
+createRosImport('matrixHomo', entFCL.torso_1_jointarm_right_5_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_5_joint')
+createRosImport('matrixHomo', entFCL.torso_1_jointarm_right_7_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_7_joint')
 #createRosImport('vector3Stamped', entFCL.arm_right_5_jointtorso_1_joint, 'rviz_marker/position1')
 #createRosImport('vector3Stamped', entFCL.torso_1_jointarm_right_5_joint, 'rviz_marker/position2')
-#createRosImport('double', taskDAMP.task.ds, 'rviz_marker_closest_points/ds')
-#createRosImport('double', taskDAMP.task.di, 'rviz_marker_closest_points/di')
+createRosImport('double', taskDAMP.task.ds, 'rviz_marker_closest_points/ds')
+createRosImport('double', taskDAMP.task.di, 'rviz_marker_closest_points/di')
 
 
 '''
