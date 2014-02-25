@@ -91,7 +91,7 @@ dynTest = DynamicOppointModifier('bla')
 staticOp = DynamicOppointModifier('static')
 taskDAMP = MetaTaskDynamicVelocityDamping('velDamp', 0.1, 0.07)
 
-collision_objects = ['arm_right_3_joint', 'arm_right_7_joint', 'arm_right_5_joint','torso_1_joint', 'arm_right_tool_joint']
+collision_objects = ['arm_right_3_joint', 'arm_right_7_joint', 'arm_right_5_joint','torso_1_joint', 'arm_left_3_joint', 'arm_left_5_joint', 'arm_left_7_joint']
 
 entFCL = DynamicGraphFCL('entFCL')
 
@@ -170,34 +170,6 @@ plug(dynOP3.jacobian, taskDAMP.task.jVel_arm_right_3_jointtorso_1_joint)
 #createRosImport('double', taskDAMP.task.ds, 'rviz_marker_closest_points/ds')
 #createRosImport('double', taskDAMP.task.di, 'rviz_marker_closest_points/di')
 
-
-'''
-taskDAMP.task.set_avoiding_objects('arm_right_7_jointtorso_1_joint:arm_right_5_jointtorso_1_joint:arm_right_3_jointtorso_1_joint')
-plug(entFCL.arm_right_7_jointtorso_1_joint, taskDAMP.task.p1_arm_right_7_jointtorso_1_joint)
-plug(entFCL.torso_1_jointarm_right_7_joint, taskDAMP.task.p2_arm_right_7_jointtorso_1_joint)
-plug(robot.dynamic.Jarm_right_7_joint, taskDAMP.task.jVel_arm_right_7_jointtorso_1_joint)
-
-plug(entFCL.arm_right_5_jointtorso_1_joint, taskDAMP.task.p1_arm_right_5_jointtorso_1_joint)
-plug(entFCL.torso_1_jointarm_right_5_joint, taskDAMP.task.p2_arm_right_5_jointtorso_1_joint)
-plug(robot.dynamic.Jarm_right_5_joint, taskDAMP.task.jVel_arm_right_5_jointtorso_1_joint)
-
-plug(entFCL.arm_right_3_jointtorso_1_joint, taskDAMP.task.p1_arm_right_3_jointtorso_1_joint)
-plug(entFCL.torso_1_jointarm_right_3_joint, taskDAMP.task.p2_arm_right_3_jointtorso_1_joint)
-plug(robot.dynamic.Jarm_right_3_joint, taskDAMP.task.jVel_arm_right_3_jointtorso_1_joint)
-
-
-plug(entFCL.arm_right_7_jointtorso_1_joint, taskDAMP7.task.p1)
-plug(robot.dynamic.Jarm_right_7_joint, taskDAMP7.task.jVel)
-plug(entFCL.torso_1_jointarm_right_7_joint, taskDAMP7.task.p2)
-
-taskDAMP5 = MetaTaskDynamicVelocityDamping('velDamp5', 0.1, 0.07)
-plug(entFCL.arm_right_5_jointtorso_1_joint, taskDAMP5.task.p1)
-plug(robot.dynamic.Jarm_right_5_joint, taskDAMP5.task.jVel)
-plug(entFCL.torso_1_jointarm_right_5_joint, taskDAMP5.task.p2)
-
-
-
-'''
 # Create basic tasks
 taskRW = createEqualityTask('rightWrist', 'arm_right_tool_joint')
 taskLW = createEqualityTask('leftWrist', 'arm_left_tool_joint')

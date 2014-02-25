@@ -6,21 +6,12 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel1
         - /RobotModel1/Links1
-        - /RobotModel1/Links1/arm_right_5_link1
-        - /RobotModel1/Links1/arm_right_7_link1
-        - /RobotModel1/Links1/arm_right_tool_link1
-        - /RobotModel1/Links1/arm_right_tool_link1/Position1
         - /TF1
         - /TF1/Frames1
         - /MarkerArray1
-        - /Marker1
-        - /Marker1/Status1
-        - /Marker2
-        - /Marker2/Status1
-      Splitter Ratio: 0.677835
-    Tree Height: 743
+      Splitter Ratio: 0.833992
+    Tree Height: 746
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -61,12 +52,12 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.7
       Class: rviz/RobotModel
-      Collision Enabled: false
+      Collision Enabled: true
       Enabled: true
       Links:
-        All Links Enabled: true
+        All Links Enabled: false
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
@@ -75,12 +66,12 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_left_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_left_3_link:
           Alpha: 1
           Show Axes: false
@@ -90,17 +81,17 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_left_5_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_left_6_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_left_7_link:
           Alpha: 1
           Show Axes: false
@@ -110,17 +101,17 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_right_1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_right_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_right_3_link:
           Alpha: 1
           Show Axes: false
@@ -130,37 +121,37 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_right_5_link:
           Alpha: 1
-          Show Axes: true
+          Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_right_6_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         arm_right_7_link:
           Alpha: 1
-          Show Axes: true
+          Show Axes: false
           Show Trail: false
           Value: true
         arm_right_tool_link:
           Alpha: 1
-          Show Axes: true
+          Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         back_camera_gazebo_back_camera_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         back_camera_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         back_camera_optical_frame:
           Alpha: 1
           Show Axes: false
@@ -169,57 +160,57 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_bumper_02_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_bumper_03_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_bumper_04_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_bumper_05_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_bumper_06_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_bumper_07_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_cargo_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_center:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_footprint:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_inclinometer_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_ir_01_link:
           Alpha: 1
           Show Axes: false
@@ -236,7 +227,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         base_link:
           Alpha: 1
           Show Axes: false
@@ -294,7 +285,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         camera_link:
           Alpha: 1
           Show Axes: false
@@ -303,22 +294,22 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         caster_left_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         caster_right_1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         caster_right_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_grasping_frame:
           Alpha: 1
           Show Axes: false
@@ -327,52 +318,52 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_index_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_index_3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_index_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_middle_1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_middle_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_middle_3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_middle_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_palm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_left_thumb_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_grasping_frame:
           Alpha: 1
           Show Axes: false
@@ -381,62 +372,62 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_index_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_index_3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_index_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_middle_1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_middle_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_middle_3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_middle_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_palm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         hand_right_thumb_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         head_1_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         head_2_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         head_sonar_16_link:
           Alpha: 1
           Show Axes: false
@@ -445,7 +436,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         stereo_gazebo_l_stereo_camera_optical_frame:
           Alpha: 1
           Show Axes: false
@@ -454,7 +445,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         stereo_gazebo_r_stereo_camera_optical_frame:
           Alpha: 1
           Show Axes: false
@@ -463,7 +454,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         stereo_optical_frame:
           Alpha: 1
           Show Axes: false
@@ -477,7 +468,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         torso_sonar_13_link:
           Alpha: 1
           Show Axes: false
@@ -494,54 +485,640 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         wheel_right_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
-      Visual Enabled: true
+      Visual Enabled: false
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        arm_left_1_link:
+          Value: false
+        arm_left_2_link:
+          Value: false
+        arm_left_3_link:
+          Value: false
+        arm_left_4_link:
+          Value: false
+        arm_left_5_link:
+          Value: false
+        arm_left_6_link:
+          Value: false
+        arm_left_7_link:
+          Value: false
+        arm_left_tool_link:
+          Value: false
+        arm_right_1_link:
+          Value: false
+        arm_right_2_link:
+          Value: false
+        arm_right_3_link:
+          Value: false
+        arm_right_4_link:
+          Value: false
+        arm_right_5_link:
+          Value: false
+        arm_right_6_link:
+          Value: false
+        arm_right_7_link:
+          Value: false
+        arm_right_tool_link:
+          Value: false
+        back_camera_gazebo_back_camera_link:
+          Value: false
+        back_camera_link:
+          Value: false
+        back_camera_optical_frame:
+          Value: false
+        base_bumper_01_link:
+          Value: false
+        base_bumper_02_link:
+          Value: false
+        base_bumper_03_link:
+          Value: false
+        base_bumper_04_link:
+          Value: false
+        base_bumper_05_link:
+          Value: false
+        base_bumper_06_link:
+          Value: false
+        base_bumper_07_link:
+          Value: false
+        base_cargo_link:
+          Value: false
+        base_center:
+          Value: false
+        base_footprint:
+          Value: false
+        base_inclinometer_link:
+          Value: false
+        base_ir_01_link:
+          Value: false
+        base_ir_02_link:
+          Value: false
+        base_ir_03_link:
+          Value: false
+        base_laser_link:
+          Value: false
+        base_link:
+          Value: false
+        base_sonar_01_link:
+          Value: false
+        base_sonar_02_link:
+          Value: false
+        base_sonar_03_link:
+          Value: false
+        base_sonar_04_link:
+          Value: false
+        base_sonar_05_link:
+          Value: false
+        base_sonar_06_link:
+          Value: false
+        base_sonar_07_link:
+          Value: false
+        base_sonar_08_link:
+          Value: false
+        base_sonar_09_link:
+          Value: false
+        base_sonar_10_link:
+          Value: false
+        base_sonar_11_link:
+          Value: false
+        base_sonar_12_link:
+          Value: false
+        base_torso_laser_link:
+          Value: false
+        camera_link:
+          Value: false
+        caster_left_1_link:
+          Value: false
+        caster_left_2_link:
+          Value: false
+        caster_right_1_link:
+          Value: false
+        caster_right_2_link:
+          Value: false
+        entFCL_arm_left_3_jointarm_left_5_joint:
+          Value: false
+        entFCL_arm_left_3_jointarm_left_7_joint:
+          Value: false
+        entFCL_arm_left_3_jointarm_right_3_joint:
+          Value: false
+        entFCL_arm_left_3_jointarm_right_5_joint:
+          Value: false
+        entFCL_arm_left_3_jointarm_right_7_joint:
+          Value: false
+        entFCL_arm_left_3_jointtorso_1_joint:
+          Value: false
+        entFCL_arm_left_5_jointarm_left_3_joint:
+          Value: false
+        entFCL_arm_left_5_jointarm_left_7_joint:
+          Value: false
+        entFCL_arm_left_5_jointarm_right_3_joint:
+          Value: false
+        entFCL_arm_left_5_jointarm_right_5_joint:
+          Value: false
+        entFCL_arm_left_5_jointarm_right_7_joint:
+          Value: false
+        entFCL_arm_left_5_jointtorso_1_joint:
+          Value: false
+        entFCL_arm_left_7_jointarm_left_3_joint:
+          Value: false
+        entFCL_arm_left_7_jointarm_left_5_joint:
+          Value: false
+        entFCL_arm_left_7_jointarm_right_3_joint:
+          Value: false
+        entFCL_arm_left_7_jointarm_right_5_joint:
+          Value: false
+        entFCL_arm_left_7_jointarm_right_7_joint:
+          Value: false
+        entFCL_arm_left_7_jointtorso_1_joint:
+          Value: false
+        entFCL_arm_right_3_jointarm_left_3_joint:
+          Value: false
+        entFCL_arm_right_3_jointarm_left_5_joint:
+          Value: false
+        entFCL_arm_right_3_jointarm_left_7_joint:
+          Value: false
+        entFCL_arm_right_3_jointarm_right_5_joint:
+          Value: false
+        entFCL_arm_right_3_jointarm_right_7_joint:
+          Value: false
+        entFCL_arm_right_3_jointarm_right_tool_joint:
+          Value: false
+        entFCL_arm_right_3_jointtorso_1_joint:
+          Value: false
+        entFCL_arm_right_5_jointarm_left_3_joint:
+          Value: false
+        entFCL_arm_right_5_jointarm_left_5_joint:
+          Value: false
+        entFCL_arm_right_5_jointarm_left_7_joint:
+          Value: false
+        entFCL_arm_right_5_jointarm_right_3_joint:
+          Value: false
+        entFCL_arm_right_5_jointarm_right_7_joint:
+          Value: false
+        entFCL_arm_right_5_jointarm_right_tool_joint:
+          Value: false
+        entFCL_arm_right_5_jointtorso_1_joint:
+          Value: false
+        entFCL_arm_right_7_jointarm_left_3_joint:
+          Value: false
+        entFCL_arm_right_7_jointarm_left_5_joint:
+          Value: false
+        entFCL_arm_right_7_jointarm_left_7_joint:
+          Value: false
+        entFCL_arm_right_7_jointarm_right_3_joint:
+          Value: false
+        entFCL_arm_right_7_jointarm_right_5_joint:
+          Value: false
+        entFCL_arm_right_7_jointarm_right_tool_joint:
+          Value: false
+        entFCL_arm_right_7_jointtorso_1_joint:
+          Value: false
+        entFCL_arm_right_tool_jointarm_right_3_joint:
+          Value: false
+        entFCL_arm_right_tool_jointarm_right_5_joint:
+          Value: false
+        entFCL_arm_right_tool_jointarm_right_7_joint:
+          Value: false
+        entFCL_arm_right_tool_jointtorso_1_joint:
+          Value: false
+        entFCL_relativ_arm_left_3_jointarm_left_5_joint:
+          Value: false
+        entFCL_relativ_arm_left_3_jointarm_left_7_joint:
+          Value: false
+        entFCL_relativ_arm_left_3_jointarm_right_3_joint:
+          Value: false
+        entFCL_relativ_arm_left_3_jointarm_right_5_joint:
+          Value: false
+        entFCL_relativ_arm_left_3_jointarm_right_7_joint:
+          Value: false
+        entFCL_relativ_arm_left_3_jointtorso_1_joint:
+          Value: false
+        entFCL_relativ_arm_left_5_jointarm_left_3_joint:
+          Value: false
+        entFCL_relativ_arm_left_5_jointarm_left_7_joint:
+          Value: false
+        entFCL_relativ_arm_left_5_jointarm_right_3_joint:
+          Value: false
+        entFCL_relativ_arm_left_5_jointarm_right_5_joint:
+          Value: false
+        entFCL_relativ_arm_left_5_jointarm_right_7_joint:
+          Value: false
+        entFCL_relativ_arm_left_5_jointtorso_1_joint:
+          Value: false
+        entFCL_relativ_arm_left_7_jointarm_left_3_joint:
+          Value: false
+        entFCL_relativ_arm_left_7_jointarm_left_5_joint:
+          Value: false
+        entFCL_relativ_arm_left_7_jointarm_right_3_joint:
+          Value: false
+        entFCL_relativ_arm_left_7_jointarm_right_5_joint:
+          Value: false
+        entFCL_relativ_arm_left_7_jointarm_right_7_joint:
+          Value: false
+        entFCL_relativ_arm_left_7_jointtorso_1_joint:
+          Value: false
+        entFCL_relativ_arm_right_3_jointarm_left_3_joint:
+          Value: false
+        entFCL_relativ_arm_right_3_jointarm_left_5_joint:
+          Value: false
+        entFCL_relativ_arm_right_3_jointarm_left_7_joint:
+          Value: false
+        entFCL_relativ_arm_right_3_jointarm_right_5_joint:
+          Value: false
+        entFCL_relativ_arm_right_3_jointarm_right_7_joint:
+          Value: false
+        entFCL_relativ_arm_right_3_jointarm_right_tool_joint:
+          Value: false
+        entFCL_relativ_arm_right_3_jointtorso_1_joint:
+          Value: false
+        entFCL_relativ_arm_right_5_jointarm_left_3_joint:
+          Value: false
+        entFCL_relativ_arm_right_5_jointarm_left_5_joint:
+          Value: false
+        entFCL_relativ_arm_right_5_jointarm_left_7_joint:
+          Value: false
+        entFCL_relativ_arm_right_5_jointarm_right_3_joint:
+          Value: false
+        entFCL_relativ_arm_right_5_jointarm_right_7_joint:
+          Value: false
+        entFCL_relativ_arm_right_5_jointarm_right_tool_joint:
+          Value: false
+        entFCL_relativ_arm_right_5_jointtorso_1_joint:
+          Value: false
+        entFCL_relativ_arm_right_7_jointarm_left_3_joint:
+          Value: false
+        entFCL_relativ_arm_right_7_jointarm_left_5_joint:
+          Value: false
+        entFCL_relativ_arm_right_7_jointarm_left_7_joint:
+          Value: false
+        entFCL_relativ_arm_right_7_jointarm_right_3_joint:
+          Value: false
+        entFCL_relativ_arm_right_7_jointarm_right_5_joint:
+          Value: false
+        entFCL_relativ_arm_right_7_jointarm_right_tool_joint:
+          Value: false
+        entFCL_relativ_arm_right_7_jointtorso_1_joint:
+          Value: false
+        entFCL_relativ_arm_right_tool_jointarm_right_3_joint:
+          Value: false
+        entFCL_relativ_arm_right_tool_jointarm_right_5_joint:
+          Value: false
+        entFCL_relativ_arm_right_tool_jointarm_right_7_joint:
+          Value: false
+        entFCL_relativ_arm_right_tool_jointtorso_1_joint:
+          Value: false
+        entFCL_relativ_torso_1_jointarm_left_3_joint:
+          Value: false
+        entFCL_relativ_torso_1_jointarm_left_5_joint:
+          Value: false
+        entFCL_relativ_torso_1_jointarm_left_7_joint:
+          Value: false
+        entFCL_relativ_torso_1_jointarm_right_3_joint:
+          Value: false
+        entFCL_relativ_torso_1_jointarm_right_5_joint:
+          Value: false
+        entFCL_relativ_torso_1_jointarm_right_7_joint:
+          Value: false
+        entFCL_relativ_torso_1_jointarm_right_tool_joint:
+          Value: false
+        entFCL_torso_1_jointarm_left_3_joint:
+          Value: false
+        entFCL_torso_1_jointarm_left_5_joint:
+          Value: false
+        entFCL_torso_1_jointarm_left_7_joint:
+          Value: false
+        entFCL_torso_1_jointarm_right_3_joint:
+          Value: false
+        entFCL_torso_1_jointarm_right_5_joint:
+          Value: false
+        entFCL_torso_1_jointarm_right_7_joint:
+          Value: false
+        entFCL_torso_1_jointarm_right_tool_joint:
+          Value: false
+        floor_link:
+          Value: false
+        hand_left_grasping_frame:
+          Value: false
+        hand_left_index_1_link:
+          Value: false
+        hand_left_index_2_link:
+          Value: false
+        hand_left_index_3_link:
+          Value: false
+        hand_left_index_link:
+          Value: false
+        hand_left_middle_1_link:
+          Value: false
+        hand_left_middle_2_link:
+          Value: false
+        hand_left_middle_3_link:
+          Value: false
+        hand_left_middle_link:
+          Value: false
+        hand_left_palm_link:
+          Value: false
+        hand_left_thumb_link:
+          Value: false
+        hand_right_grasping_frame:
+          Value: false
+        hand_right_index_1_link:
+          Value: false
+        hand_right_index_2_link:
+          Value: false
+        hand_right_index_3_link:
+          Value: false
+        hand_right_index_link:
+          Value: false
+        hand_right_middle_1_link:
+          Value: false
+        hand_right_middle_2_link:
+          Value: false
+        hand_right_middle_3_link:
+          Value: false
+        hand_right_middle_link:
+          Value: false
+        hand_right_palm_link:
+          Value: false
+        hand_right_thumb_link:
+          Value: false
+        head_1_link:
+          Value: false
+        head_2_link:
+          Value: false
+        head_sonar_16_link:
+          Value: false
+        l_hand_goal:
+          Value: false
+        r_hand_goal:
+          Value: false
+        stereo_gazebo_l_stereo_camera_frame:
+          Value: false
+        stereo_gazebo_l_stereo_camera_optical_frame:
+          Value: false
+        stereo_gazebo_r_stereo_camera_frame:
+          Value: false
+        stereo_gazebo_r_stereo_camera_optical_frame:
+          Value: false
+        stereo_link:
+          Value: false
+        stereo_optical_frame:
+          Value: false
+        taskDAMP_p1in_arm_left_3_joint:
+          Value: false
+        taskDAMP_p1in_arm_left_5_joint:
+          Value: false
+        taskDAMP_p1in_arm_left_7_joint:
+          Value: false
+        taskDAMP_p1in_arm_right_3_joint:
+          Value: false
+        taskDAMP_p1in_arm_right_5_joint:
+          Value: false
+        taskDAMP_p1in_arm_right_7_joint:
+          Value: false
+        taskDAMP_p2in_arm_left_3_joint:
+          Value: false
+        taskDAMP_p2in_arm_left_5_joint:
+          Value: false
+        taskDAMP_p2in_arm_left_7_joint:
+          Value: false
+        taskDAMP_p2in_arm_right_3_joint:
+          Value: false
+        taskDAMP_p2in_arm_right_5_joint:
+          Value: false
+        taskDAMP_p2in_arm_right_7_joint:
+          Value: false
+        taskDAMP_v_arm_left_3_joint:
+          Value: false
+        taskDAMP_v_arm_left_5_joint:
+          Value: false
+        taskDAMP_v_arm_left_7_joint:
+          Value: false
+        taskDAMP_v_arm_right_3_joint:
+          Value: false
+        taskDAMP_v_arm_right_5_joint:
+          Value: false
+        taskDAMP_v_arm_right_7_joint:
+          Value: false
+        torso_1_link:
+          Value: false
+        torso_2_link:
+          Value: false
+        torso_sonar_13_link:
+          Value: false
+        torso_sonar_14_link:
+          Value: false
+        torso_sonar_15_link:
+          Value: false
+        wheel_left_link:
+          Value: false
+        wheel_right_link:
+          Value: false
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: false
       Tree:
-        {}
+        base_footprint:
+          base_link:
+            base_bumper_01_link:
+              {}
+            base_bumper_02_link:
+              {}
+            base_bumper_03_link:
+              {}
+            base_bumper_04_link:
+              {}
+            base_bumper_05_link:
+              {}
+            base_bumper_06_link:
+              {}
+            base_bumper_07_link:
+              {}
+            base_cargo_link:
+              {}
+            base_center:
+              {}
+            base_inclinometer_link:
+              {}
+            base_ir_01_link:
+              {}
+            base_ir_02_link:
+              {}
+            base_ir_03_link:
+              {}
+            base_laser_link:
+              {}
+            base_sonar_01_link:
+              {}
+            base_sonar_02_link:
+              {}
+            base_sonar_03_link:
+              {}
+            base_sonar_04_link:
+              {}
+            base_sonar_05_link:
+              {}
+            base_sonar_06_link:
+              {}
+            base_sonar_07_link:
+              {}
+            base_sonar_08_link:
+              {}
+            base_sonar_09_link:
+              {}
+            base_sonar_10_link:
+              {}
+            base_sonar_11_link:
+              {}
+            base_sonar_12_link:
+              {}
+            base_torso_laser_link:
+              {}
+            caster_left_1_link:
+              caster_left_2_link:
+                {}
+            caster_right_1_link:
+              caster_right_2_link:
+                {}
+            floor_link:
+              l_hand_goal:
+                {}
+              r_hand_goal:
+                {}
+            taskDAMP_p1in_arm_left_3_joint:
+              {}
+            taskDAMP_p1in_arm_left_5_joint:
+              {}
+            taskDAMP_p1in_arm_left_7_joint:
+              {}
+            taskDAMP_p1in_arm_right_3_joint:
+              {}
+            taskDAMP_p1in_arm_right_5_joint:
+              {}
+            taskDAMP_p1in_arm_right_7_joint:
+              {}
+            taskDAMP_p2in_arm_left_3_joint:
+              taskDAMP_v_arm_left_3_joint:
+                {}
+            taskDAMP_p2in_arm_left_5_joint:
+              taskDAMP_v_arm_left_5_joint:
+                {}
+            taskDAMP_p2in_arm_left_7_joint:
+              taskDAMP_v_arm_left_7_joint:
+                {}
+            taskDAMP_p2in_arm_right_3_joint:
+              taskDAMP_v_arm_right_3_joint:
+                {}
+            taskDAMP_p2in_arm_right_5_joint:
+              taskDAMP_v_arm_right_5_joint:
+                {}
+            taskDAMP_p2in_arm_right_7_joint:
+              taskDAMP_v_arm_right_7_joint:
+                {}
+            torso_1_link:
+              torso_2_link:
+                arm_left_1_link:
+                  arm_left_2_link:
+                    arm_left_3_link:
+                      arm_left_4_link:
+                        arm_left_5_link:
+                          arm_left_6_link:
+                            arm_left_7_link:
+                              arm_left_tool_link:
+                                hand_left_palm_link:
+                                  hand_left_grasping_frame:
+                                    {}
+                                  hand_left_index_1_link:
+                                    hand_left_index_2_link:
+                                      hand_left_index_3_link:
+                                        {}
+                                  hand_left_index_link:
+                                    {}
+                                  hand_left_middle_1_link:
+                                    hand_left_middle_2_link:
+                                      hand_left_middle_3_link:
+                                        {}
+                                  hand_left_middle_link:
+                                    {}
+                                  hand_left_thumb_link:
+                                    {}
+                arm_right_1_link:
+                  arm_right_2_link:
+                    arm_right_3_link:
+                      arm_right_4_link:
+                        arm_right_5_link:
+                          arm_right_6_link:
+                            arm_right_7_link:
+                              arm_right_tool_link:
+                                hand_right_palm_link:
+                                  hand_right_grasping_frame:
+                                    {}
+                                  hand_right_index_1_link:
+                                    hand_right_index_2_link:
+                                      hand_right_index_3_link:
+                                        {}
+                                  hand_right_index_link:
+                                    {}
+                                  hand_right_middle_1_link:
+                                    hand_right_middle_2_link:
+                                      hand_right_middle_3_link:
+                                        {}
+                                  hand_right_middle_link:
+                                    {}
+                                  hand_right_thumb_link:
+                                    {}
+                back_camera_link:
+                  back_camera_gazebo_back_camera_link:
+                    {}
+                  back_camera_optical_frame:
+                    {}
+                head_1_link:
+                  head_2_link:
+                    camera_link:
+                      {}
+                    head_sonar_16_link:
+                      {}
+                    stereo_link:
+                      stereo_gazebo_l_stereo_camera_frame:
+                        stereo_gazebo_l_stereo_camera_optical_frame:
+                          {}
+                        stereo_gazebo_r_stereo_camera_frame:
+                          stereo_gazebo_r_stereo_camera_optical_frame:
+                            {}
+                      stereo_optical_frame:
+                        {}
+                torso_sonar_13_link:
+                  {}
+                torso_sonar_14_link:
+                  {}
+                torso_sonar_15_link:
+                  {}
+            wheel_left_link:
+              {}
+            wheel_right_link:
+              {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Class: rviz/MarkerArray
-      Enabled: false
+      Enabled: true
       Marker Topic: /rviz_marker_closest_points/avoidance
       Name: MarkerArray
       Namespaces:
-        {}
-      Queue Size: 100
-      Value: false
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /rviz_marker_debug/closest_point_1_out
-      Name: Marker
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /rviz_marker_debug/closest_point_2_out
-      Name: Marker
-      Namespaces:
-        {}
+        /: true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -568,25 +1145,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.68505
+      Distance: 1.83605
       Focal Point:
-        X: 0.0515363
-        Y: -0.0432219
-        Z: 0.858421
+        X: -0.223081
+        Y: -0.0118959
+        Z: 0.887897
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 1.3848
+      Pitch: 1.0248
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.70244
+      Yaw: 0.0910588
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: false
-  Height: 1024
-  Hide Left Dock: false
+    collapsed: true
+  Height: 1027
+  Hide Left Dock: true
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000019600000376fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000002800000376000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000005370000003efc0100000002fb0000000800540069006d0065010000000000000537000002f600fffffffb0000000800540069006d006501000000000000045000000000000000000000039b0000037600000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000024d00000379fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073000000002800000379000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000035a0000003efc0100000002fb0000000800540069006d006501000000000000035a000002f600fffffffb0000000800540069006d006501000000000000045000000000000000000000035a0000037900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -595,6 +1172,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1335
-  X: 84
-  Y: 24
+  Width: 858
+  X: 83
+  Y: 42

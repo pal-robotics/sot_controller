@@ -71,7 +71,7 @@ def staticAvoidanceTool():
 	createRosImport('double', taskDAMP.task.ds, 'rviz_marker_closest_points/ds')
 	createRosImport('double', taskDAMP.task.di, 'rviz_marker_closest_points/di')
 
-collision_objects = ['arm_right_3_joint', 'arm_right_7_joint', 'arm_right_5_joint','torso_1_joint', 'arm_right_tool_joint']
+collision_objects = ['arm_right_3_joint', 'arm_right_7_joint', 'arm_right_5_joint','torso_1_joint','arm_left_3_joint', 'arm_left_7_joint', 'arm_left_5_joint']
 
 entFCL = DynamicGraphFCL('entFCL')
 
@@ -95,46 +95,88 @@ for i in range(len(collision_objects)):
 			signal_name = str(collision_objects[i])+str(collision_objects[j])
 			entFCL.signal(signal_name).recompute(0)
 			#createRosImport('vector3', entFCL.signal(signal_name), 'rviz_marker_closest_points/'+str(signal_name))	
-
+'''
+TORSO TEST
+DYNOP FOR CLOSEST POINT CALUCLATION AND JACOBIAN TWIST
+'''
 # just for torso test!
-dynOP7 = DynamicOppointModifier('arm_right_7_joint')
-plug(robot.dynamic.arm_right_7_joint, dynOP7.positionIN)
-plug(robot.dynamic.Jarm_right_7_joint, dynOP7.jacobianIN)
-plug(entFCL.oppoint_arm_right_7_jointtorso_1_joint, dynOP7.transformationSig)
+#arm right
+dynOP7right = DynamicOppointModifier('arm_right_7_joint')
+plug(robot.dynamic.arm_right_7_joint, dynOP7right.positionIN)
+plug(robot.dynamic.Jarm_right_7_joint, dynOP7right.jacobianIN)
+plug(entFCL.oppoint_arm_right_7_jointtorso_1_joint, dynOP7right.transformationSig)
 
-dynOP5 = DynamicOppointModifier('arm_right_5_joint')
-plug(robot.dynamic.arm_right_5_joint, dynOP5.positionIN)
-plug(robot.dynamic.Jarm_right_5_joint, dynOP5.jacobianIN)
-plug(entFCL.oppoint_arm_right_5_jointtorso_1_joint, dynOP5.transformationSig)
+dynOP5right = DynamicOppointModifier('arm_right_5_joint')
+plug(robot.dynamic.arm_right_5_joint, dynOP5right.positionIN)
+plug(robot.dynamic.Jarm_right_5_joint, dynOP5right.jacobianIN)
+plug(entFCL.oppoint_arm_right_5_jointtorso_1_joint, dynOP5right.transformationSig)
 
-dynOP3 = DynamicOppointModifier('arm_right_3_joint')
-plug(robot.dynamic.arm_right_3_joint, dynOP3.positionIN)
-plug(robot.dynamic.Jarm_right_3_joint, dynOP3.jacobianIN)
-plug(entFCL.oppoint_arm_right_3_jointtorso_1_joint, dynOP3.transformationSig)
+dynOP3right = DynamicOppointModifier('arm_right_3_joint')
+plug(robot.dynamic.arm_right_3_joint, dynOP3right.positionIN)
+plug(robot.dynamic.Jarm_right_3_joint, dynOP3right.jacobianIN)
+plug(entFCL.oppoint_arm_right_3_jointtorso_1_joint, dynOP3right.transformationSig)
+
+#arm left
+dynOP7left = DynamicOppointModifier('arm_left_7_joint')
+plug(robot.dynamic.arm_left_7_joint, dynOP7left.positionIN)
+plug(robot.dynamic.Jarm_left_7_joint, dynOP7left.jacobianIN)
+plug(entFCL.oppoint_arm_left_7_jointtorso_1_joint, dynOP7left.transformationSig)
+
+dynOP5left = DynamicOppointModifier('arm_left_5_joint')
+plug(robot.dynamic.arm_left_5_joint, dynOP5left.positionIN)
+plug(robot.dynamic.Jarm_left_5_joint, dynOP5left.jacobianIN)
+plug(entFCL.oppoint_arm_left_5_jointtorso_1_joint, dynOP5left.transformationSig)
+
+dynOP3left = DynamicOppointModifier('arm_left_3_joint')
+plug(robot.dynamic.arm_left_3_joint, dynOP3left.positionIN)
+plug(robot.dynamic.Jarm_left_3_joint, dynOP3left.jacobianIN)
+plug(entFCL.oppoint_arm_left_3_jointtorso_1_joint, dynOP3left.transformationSig)
 
 
+'''
+AVOIDANCE TASK
+'''
 taskDAMP = MetaTaskDynamicVelocityDamping('velDamp', 0.1, 0.07)
-taskDAMP.task.set_avoiding_objects('arm_right_7_joint:arm_right_5_joint:arm_right_3_joint')
+taskDAMP.task.set_avoiding_objects('arm_right_7_joint:arm_right_5_joint:arm_right_3_joint:arm_left_7_joint:arm_left_5_joint:arm_left_3_joint')
+createRosImport('double', taskDAMP.task.ds, 'rviz_marker_closest_points/ds')
+createRosImport('double', taskDAMP.task.di, 'rviz_marker_closest_points/di')
+''' THIS HAS TO BE ENTFCL, otherwise the calculation won't get triggered!!!! IMPORTANT'''
+''' question is why left arm is different in v compared to right
+	
+entFCL should return full pose of point, not just point with identity matrix!!
 
+'''
+#plug right arm
 plug(entFCL.arm_right_7_jointtorso_1_joint, taskDAMP.task.p1_arm_right_7_joint)
 plug(entFCL.torso_1_jointarm_right_7_joint, taskDAMP.task.p2_arm_right_7_joint)
-plug(dynOP7.jacobian, taskDAMP.task.jVel_arm_right_7_joint)
+plug(dynOP7right.jacobian, taskDAMP.task.jVel_arm_right_7_joint)
+createRosImport('matrixHomo', entFCL.torso_1_jointarm_right_7_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_7_joint')
 
 plug(entFCL.arm_right_5_jointtorso_1_joint, taskDAMP.task.p1_arm_right_5_joint)
 plug(entFCL.torso_1_jointarm_right_5_joint, taskDAMP.task.p2_arm_right_5_joint)
-plug(dynOP5.jacobian, taskDAMP.task.jVel_arm_right_5_joint)
+plug(dynOP5right.jacobian, taskDAMP.task.jVel_arm_right_5_joint)
+createRosImport('matrixHomo', entFCL.torso_1_jointarm_right_5_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_5_joint')
 
 plug(entFCL.arm_right_3_jointtorso_1_joint, taskDAMP.task.p1_arm_right_3_joint)
 plug(entFCL.torso_1_jointarm_right_3_joint, taskDAMP.task.p2_arm_right_3_joint)
-plug(dynOP3.jacobian, taskDAMP.task.jVel_arm_right_3_joint)
-
+plug(dynOP3right.jacobian, taskDAMP.task.jVel_arm_right_3_joint)
 createRosImport('matrixHomo', entFCL.torso_1_jointarm_right_3_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_3_joint')
-createRosImport('matrixHomo', entFCL.torso_1_jointarm_right_5_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_5_joint')
-createRosImport('matrixHomo', entFCL.torso_1_jointarm_right_7_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_7_joint')
-#createRosImport('vector3Stamped', entFCL.arm_right_5_jointtorso_1_joint, 'rviz_marker/position1')
-#createRosImport('vector3Stamped', entFCL.torso_1_jointarm_right_5_joint, 'rviz_marker/position2')
-createRosImport('double', taskDAMP.task.ds, 'rviz_marker_closest_points/ds')
-createRosImport('double', taskDAMP.task.di, 'rviz_marker_closest_points/di')
+
+#plug left arm
+plug(entFCL.arm_left_7_jointtorso_1_joint, taskDAMP.task.p1_arm_left_7_joint)
+plug(entFCL.torso_1_jointarm_left_7_joint, taskDAMP.task.p2_arm_left_7_joint)
+plug(dynOP7left.jacobian, taskDAMP.task.jVel_arm_left_7_joint)
+createRosImport('matrixHomo', entFCL.torso_1_jointarm_left_7_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_left_7_joint')
+
+plug(entFCL.arm_left_5_jointtorso_1_joint, taskDAMP.task.p1_arm_left_5_joint)
+plug(entFCL.torso_1_jointarm_left_5_joint, taskDAMP.task.p2_arm_left_5_joint)
+plug(dynOP5left.jacobian, taskDAMP.task.jVel_arm_left_5_joint)
+createRosImport('matrixHomo', entFCL.torso_1_jointarm_left_5_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_left_5_joint')
+
+plug(entFCL.arm_left_3_jointtorso_1_joint, taskDAMP.task.p1_arm_left_3_joint)
+plug(entFCL.torso_1_jointarm_left_3_joint, taskDAMP.task.p2_arm_left_3_joint)
+plug(dynOP3left.jacobian, taskDAMP.task.jVel_arm_left_3_joint)
+createRosImport('matrixHomo', entFCL.torso_1_jointarm_left_3_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_left_3_joint')
 
 
 '''
@@ -174,4 +216,5 @@ diag = (0,0,0,0,0,0,1.36499,1.49997,0.677897,0.636507,0.170576,0.234007,0.120986
 taskWEIGHTS = createWeightsTask(diag)
 basicStack()
 gotoNd(taskRW,(0.2,-0.4,1.1),'111111',5)
+gotoNd(taskLW,(0.2,0.4,1.1),'111111',5)
 # Create the inequalities
