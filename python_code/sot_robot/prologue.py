@@ -41,7 +41,6 @@ solver.setSize(robot.dimension)
 # set a constant damping to 0.1
 solver.damping.value = 0.1
 
-
 robot.device.control.unplug()
 plug(solver.control,robot.device.control)
 # Close the control loop
