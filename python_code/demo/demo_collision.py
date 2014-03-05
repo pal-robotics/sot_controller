@@ -93,82 +93,10 @@ taskDAMP = MetaTaskDynamicVelocityDamping('velDamp', 0.1, 0.07)
 
 collision_objects = ['arm_right_3_joint', 'arm_right_7_joint', 'arm_right_5_joint','torso_1_joint', 'arm_left_3_joint', 'arm_left_5_joint', 'arm_left_7_joint']
 
-entFCL = DynamicGraphFCL('entFCL')
-
-# setup entity for FCL
-collision_string = ''
-for collision in collision_objects:
-	collision_string += collision+str(':')
-collision_string = collision_string[:-1]
-print ('setting collision objects: '+str(collision_string))
-entFCL.set_collision_joints(collision_string)
-
-# plugging FK into FCL 
+# create OB point 
 for collision in collision_objects:
         robot.dynamic.createOpPoint(collision, collision)
-	plug(robot.dynamic.signal(collision), entFCL.signal(collision))
 
-for i in range(len(collision_objects)):
-	for j in range(len(collision_objects)):
-		if not(collision_objects[i] == collision_objects[j]):
-			signal_name = str(collision_objects[i])+str(collision_objects[j])
-			createRosImport('vector3', entFCL.signal(signal_name), 'rviz_marker_closest_points/'+str(signal_name))	
-
-
-# just for torso test!
-dynOP7 = DynamicOppointModifier('arm_right_7_joint')
-plug(robot.dynamic.arm_right_7_joint, dynOP7.positionIN)
-plug(robot.dynamic.Jarm_right_7_joint, dynOP7.jacobianIN)
-plug(entFCL.oppoint_arm_right_7_jointtorso_1_joint, dynOP7.transformationSig)
-
-dynOP5 = DynamicOppointModifier('arm_right_5_joint')
-plug(robot.dynamic.arm_right_5_joint, dynOP5.positionIN)
-plug(robot.dynamic.Jarm_right_5_joint, dynOP5.jacobianIN)
-plug(entFCL.oppoint_arm_right_5_jointtorso_1_joint, dynOP5.transformationSig)
-
-dynOP3 = DynamicOppointModifier('arm_right_3_joint')
-plug(robot.dynamic.arm_right_3_joint, dynOP3.positionIN)
-plug(robot.dynamic.Jarm_right_3_joint, dynOP3.jacobianIN)
-plug(entFCL.oppoint_arm_right_3_jointtorso_1_joint, dynOP3.transformationSig)
-
-#taskDAMP = MetaTaskDynamicVelocityDamping('velDamp', 0.1, 0.07)
-#taskDAMP.task.set_avoiding_objects('arm_right_5_jointtorso_1_joint')
-
-#taskDAMP.task.set_avoiding_objects('arm_right_7_jointtorso_1_joint:arm_right_5_jointtorso_1_joint:arm_right_3_jointtorso_1_joint')
-
-
-
-#taskDAMP.task.set_avoiding_objects('arm_right_7_jointtorso_1_joint')
-#plug(dynTest.position, taskDAMP.task.p1_arm_right_7_jointtorso_1_joint)
-#plug(entFCL.torso_1_jointarm_right_7_joint, taskDAMP.task.p2_arm_right_7_jointtorso_1_joint)
-#plug(dynTest.jacobian, taskDAMP.task.jVel_arm_right_7_jointtorso_1_joint)
-# set constant for testing purpose
-#p2_point = goalDef([0.1,-0.1,1.1])
-#taskDAMP.task.p2_arm_right_7_jointtorso_1_joint.value = matrixToTuple(p2_point)
-
-
-#plug(entFCL.arm_right_7_jointtorso_1_joint, taskDAMP.task.p1_arm_right_7_jointtorso_1_joint)
-#plug(entFCL.torso_1_jointarm_right_7_joint, taskDAMP.task.p2_arm_right_7_jointtorso_1_joint)
-#plug(dynOP7.jacobian, taskDAMP.task.jVel_arm_right_7_jointtorso_1_joint)
-#plug(robot.dynamic.Jarm_right_7_joint, taskDAMP.task.jVel_arm_right_7_jointtorso_1_joint)
-'''
-plug(entFCL.arm_right_5_jointtorso_1_joint, taskDAMP.task.p1_arm_right_5_jointtorso_1_joint)
-plug(entFCL.torso_1_jointarm_right_5_joint, taskDAMP.task.p2_arm_right_5_jointtorso_1_joint)
-plug(dynOP5.jacobian, taskDAMP.task.jVel_arm_right_5_jointtorso_1_joint)
-
-plug(entFCL.arm_right_3_jointtorso_1_joint, taskDAMP.task.p1_arm_right_3_jointtorso_1_joint)
-plug(entFCL.torso_1_jointarm_right_3_joint, taskDAMP.task.p2_arm_right_3_jointtorso_1_joint)
-plug(dynOP3.jacobian, taskDAMP.task.jVel_arm_right_3_jointtorso_1_joint)
-'''
-
-
-#createRosImport('vector3', entFCL.torso_1_jointarm_right_3_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_3_joint')
-#createRosImport('vector3', entFCL.torso_1_jointarm_right_5_joint, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_5_joint')
-#createRosImport('vector3', dynTest.transformationSig, 'rviz_marker_closest_points/avoid_torso_1_jointarm_right_7_joint')
-#createRosImport('vector3Stamped', entFCL.arm_right_5_jointtorso_1_joint, 'rviz_marker/position1')
-#createRosImport('vector3Stamped', entFCL.torso_1_jointarm_right_5_joint, 'rviz_marker/position2')
-#createRosImport('double', taskDAMP.task.ds, 'rviz_marker_closest_points/ds')
-#createRosImport('double', taskDAMP.task.di, 'rviz_marker_closest_points/di')
 
 # Create basic tasks
 taskRW = createEqualityTask('rightWrist', 'arm_right_tool_joint')

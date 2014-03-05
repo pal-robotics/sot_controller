@@ -1,0 +1,33 @@
+<launch>
+	<param name="demofile" value="$(arg demofile)" />
+	<arg name="trj_publisher" value="true" />
+	<arg name="sot_filter_wrist" value="false" />
+	<arg name="sot_filter_gaze" value="false" />
+
+  	<!-- start the trj publisher -->
+	<group if="$(arg trj_publisher)">
+		<include file="$(find trj_publisher)/launch/trj_publisher.launch" />
+	</group>
+	
+  	<!-- start sot_transformation filter for wrist -->
+	<group if="$(arg sot_filter_wrist)" >	
+		<arg name="ref_frame" value="base_link" />
+		<node pkg="sot_filters" type="sot_filters" name="right_wrist_filter" args="$(arg ref_frame) /sot_controller/arm_right_tool_joint /sot_filters/right_wrist">
+			<remap from="/right_wrist_filter/transform_stamped" to="/hand_pose_publisher/right_hand_ref_pose" />
+		</node>
+		<node pkg="sot_filters" type="sot_filters" name="left_wrist_filter" args="$(arg ref_frame) /sot_controller/arm_left_tool_joint /sot_filters/left_wrist">
+			<remap from="/left_wrist_filter/transform_stamped" to="/hand_pose_publisher/left_hand_ref_pose" />
+		</node>
+	</group>
+
+  	<!-- start sot_transformation filter for wrist -->
+	<group if="$(arg sot_filter_wrist)" >	
+		<arg name="ref_frame" value="base_link" />
+		<node pkg="sot_filters" type="sot_filters" name="gaze_filter" args="$(arg ref_frame) /sot_controller/camera_joint /sot_filters/gaze">
+			<remap from="/gaze_filter/vector_stamped" to="/hand_pose_publisher/head_ref_point" />
+		</node>
+  	</group>
+
+	<!-- fire up your favourite demo! -->
+	<node name="run_command" pkg="dynamic_graph_bridge" type="run_command" ns="sot_controller" args="$(find sot_controller)/python_code/demo/$(arg demofile)" output="screen"/>
+</launch>

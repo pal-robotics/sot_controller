@@ -4,7 +4,7 @@ project(sot_controller)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS controller_interface controller_manager dynamic_graph_bridge forward_command_controller realtime_tools ros_sot_robot_model roscpp rospy urdf stack_of_tasks_trajectory_pipeline)
+find_package(catkin REQUIRED COMPONENTS controller_interface controller_manager dynamic_graph_bridge forward_command_controller realtime_tools ros_sot_robot_model roscpp rospy urdf )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -27,7 +27,7 @@ include_directories(${PYTHON_INCLUDE_DIRS})
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES sot_controller
-  CATKIN_DEPENDS controller_interface controller_manager dynamic_graph_bridge forward_command_controller realtime_tools ros_sot_robot_model roscpp rospy urdf stack_of_tasks_trajectory_pipeline
+  CATKIN_DEPENDS controller_interface controller_manager dynamic_graph_bridge forward_command_controller realtime_tools ros_sot_robot_model roscpp rospy urdf
   DEPENDS dynamic-graph dynamic-graph-python sot-core sot-dyninv
 )
 
@@ -104,27 +104,38 @@ pkg_config_use_dependency(sot_controller "sot-dyninv")
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS sot_controller sot_controller_node
-#   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+install(TARGETS ${PROJECT_NAME}
+   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
-## Mark cpp header files for installation
-# install(DIRECTORY include/${PROJECT_NAME}/
-#   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-#   FILES_MATCHING PATTERN "*.h"
-#   PATTERN ".svn" EXCLUDE
-# )
+##  copy python files
+install(DIRECTORY python_code
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+   FILES_MATCHING PATTERN "*.py"
+   PATTERN ".svn" EXCLUDE
+ )
+
+## copy launch files
+install(DIRECTORY launch
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+   FILES_MATCHING PATTERN "*.launch"
+)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
-# install(FILES
-#   # myfile1
+install(FILES
+  config/sot_controller.yaml
 #   # myfile2
-#   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-# )
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
+)
 
+install(FILES
+  sot_controller_plugins.xml
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
 #############
+
 ## Testing ##
 #############
 

@@ -82,23 +82,4 @@ taskWEIGHTS = createWeightsTask(diag)
 # Create the inequalities
 taskDAMP = createVelocityDampingTask('velDamp', 'arm_right_tool_joint', None, 0.2, 0.15)
 taskDAMP.task.controlGain.value = 1
-#taskIneq = createInequalityTask('rightWrist', 'arm_right_5_joint', '000100', (0,0,0))
-#taskIneq.task.referenceInf.value = (0,0,1.4)
 
-
-from dynamic_graph.dynamic_graph_fcl import DynamicGraphFCL
-entFCL = DynamicGraphFCL('entFCL')
-entFCL.set_collision_joints('arm_left_7_joint:arm_right_7_joint:torso_1_joint')
-
-robot.dynamic.createOpPoint('arm_right_7_joint', 'arm_right_7_joint')
-robot.dynamic.createOpPoint('arm_left_7_joint', 'arm_left_7_joint')
-robot.dynamic.createOpPoint('torso_1_joint', 'torso_1_joint')
-plug(robot.dynamic.arm_right_7_joint, entFCL.arm_right_7_joint)
-plug(robot.dynamic.arm_left_7_joint, entFCL.arm_left_7_joint)
-plug(robot.dynamic.torso_1_joint, entFCL.torso_1_joint)
-
-#createRosImport('vector3', entFCL.arm_right_7_jointarm_left_7_joint, 'rviz_marker_debug/closest_point_1_in')
-#createRosImport('vector3', entFCL.arm_left_7_jointarm_right_7_joint, 'rviz_marker_debug/closest_point_2_in')
-
-createRosImport('vector3', entFCL.arm_right_7_jointtorso_1_joint, 'rviz_marker_debug/closest_point_1_in')
-createRosImport('vector3', entFCL.torso_1_jointarm_right_7_joint, 'rviz_marker_debug/closest_point_2_in')

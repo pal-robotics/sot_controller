@@ -197,21 +197,20 @@ bool SotDevice::getSharedState(stdVector_t &outputPosition, stdVector_t &outputV
 void SotDevice::update(){
     while(!getKillSignal()){
 
-        // eventually come up with timing and put a low sleep in it
         r_.reset();
         computeNewState();
         setDeviceStatus(false);
 
-        debugCounter++;
-        sleepTime_ = end_timing();
-        //        std::cout << "time so far: " << sleepTime_ << std::endl;
-        if (sleepTime_ > 1000000000){
-            std::cout << "time elapsed: " << sleepTime_ << " num_inc: " << debugCounter << std::endl;
-            sleepTime_ = 0.0;
-            debugCounter = 0;
-            start_reset();
-            start_timing();
-        }
+//        debugCounter++;
+//        sleepTime_ = end_timing();
+//        //        std::cout << "time so far: " << sleepTime_ << std::endl;
+//        if (sleepTime_ > 1000000000){
+//            //std::cout << "time elapsed: " << sleepTime_ << " num_inc: " << debugCounter << std::endl;
+//            sleepTime_ = 0.0;
+//            debugCounter = 0;
+//            start_reset();
+//            start_timing();
+//        }
         r_.sleep();
     }
 }
@@ -252,17 +251,7 @@ void SotDevice::computeNewState() {
         ROS_ERROR_STREAM("unknown exception at SotDevice::computeNewState. ");
     }
 
-    if(self_collision_){
-        for (int i = 0; i < jointPositions_.size(); ++i)
-            jointPositions_[i] = (state_(i+offset_));
-        if(bs_->is_safe(jointPositions_))
-            // Position safe, set the new state
-            setSharedState(state_,control_);
-    } else{
-        // Set the new state
-        setSharedState(state_,control_);
-    }
-//    usleep(100);
+    setSharedState(state_,control_);
 }
 
 // triggered from the outside, in this case sot_controller which enables the actual computation of the sot
@@ -294,10 +283,5 @@ void SotDevice::setKillSignal(const bool kill) {
     killThread_ = kill;
 }
 
-void SotDevice::enableSelfCollisionCheck(ros::NodeHandle& node, jointNames_t jointNames){
-    // Note: dt is fixed to 0.0 because we are not going to use velocity limits
-    bs_.reset(new pipeline::BipedSafety(&node,jointNames,0.0));
-    self_collision_ = true;
-}
 
 

@@ -45,8 +45,6 @@
 # include <boost/thread.hpp>
 # include <atomic>
 
-// Include it for the self collision check
-# include <ros_control_pipeline/safety.hpp>
 
 /**
  * \brief Interface controller for the stack of tasks. It is wrapped by sot_controller.
@@ -123,11 +121,6 @@ public:
     /// \brief Sample time, given by the controller manager.
     dynamicgraph::Signal<double,int> dtSOUT;
 
-    /// \brief Enable the self collision check.
-    void enableSelfCollisionCheck(ros::NodeHandle& node, jointNames_t jointNames);
-
-    /// \brief Safety checker.
-    boost::shared_ptr<pipeline::BipedSafety>  bs_;
 
 private:
 
