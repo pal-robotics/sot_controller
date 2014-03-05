@@ -3,7 +3,7 @@
 
 <!--GAZEBO dependency -->
 	<arg name="world"  default="empty"/>  <!-- empty, small_office, ... (see ../worlds) -->
-	<arg name="robot"  default="sot"/>          <!-- full, lower_body, foot -->
+	<arg name="robot"  default="capsule"/>          <!-- full, lower_body, foot -->
 	<arg name="gzpose" default="-x 0.0 -y 0.0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
 	<arg name="gui" default="false"/>
 	<arg name="debug" default="false"/>
@@ -20,12 +20,13 @@
 	</include>
 
 	<!-- spawn robot in simulation -->
-	<include file="$(find reem_gazebo)/launch/reem_spawn_sot.launch">
+	<include file="$(find reem_gazebo)/launch/reem_spawn.launch">
 	<arg name="robot"  value="$(arg robot)"/>
 	<arg name="gzpose" value="$(arg gzpose)"/>
 	</include>
 
         <!-- start reem simulation and the sot controller -->
-       	<include file="$(find sot_controller)/launch/dummy_act_mgr_test_sot_reem_gazebo.launch" />
+       	<include file="$(find sot_controller)/launch/controller_spawner.launch" />
+
 
 </launch>

@@ -3,10 +3,14 @@
 <!-- Load the robot descriptions on the parameter server -->
 <launch>
   <!-- Robot model with collision cylinder placed on the hands -->
-  <include file="$(find reem_description)/robots/upload_reem_sot.launch" />
+  <include file="$(find reem_description)/robots/upload_reem.launch" >
+	<arg name="robot" value="capsule" />
+ </include>
   
   <!-- SOT Robot model (no hands) -->
-  <include file="$(find reem_description)/robots/upload_reem_upper_body_no_hands.launch" ns="sot_controller"/>
+  <include file="$(find reem_description)/robots/upload_reem.launch" ns="sot_controller" >
+	<arg name="robot" value="upper_body_no_hands" />
+  </include>
   
   <!-- Initial freeflyer pose -->
   <rosparam param="ffpose" ns="sot_controller">[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</rosparam>
