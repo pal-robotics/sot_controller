@@ -111,7 +111,7 @@ plug(entFCL.oppoint_arm_left_3_jointtorso_1_joint, dynOP3left.transformationSig)
 '''
 AVOIDANCE TASK
 '''
-taskDAMP = MetaTaskDynamicVelocityDamping('velDamp', 0.1, 0.07)
+taskDAMP = MetaTaskDynamicVelocityDamping('velDamp')
 taskDAMP.task.set_avoiding_objects('arm_right_7_joint:arm_right_5_joint:arm_right_3_joint:arm_left_7_joint:arm_left_5_joint:arm_left_3_joint')
 createRosImport('double', taskDAMP.task.ds, 'rviz_marker_closest_points/ds')
 createRosImport('double', taskDAMP.task.di, 'rviz_marker_closest_points/di')

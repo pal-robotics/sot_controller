@@ -7,52 +7,10 @@ from dynamic_graph.dynamic_graph_fcl import DynamicGraphFCL
 from dynamic_graph.sot.core.meta_task_dynamic_velocity_damping import MetaTaskDynamicVelocityDamping
 from dynamic_graph.sot.core.dyn_oppoint_modifier import DynamicOppointModifier
 
-def followTrajectory():
-	createRosExport('matrixHomoStamped',taskRW.featureDes.position,'/hand_pose_publisher/right_hand_ref_pose')
-	createRosExport('matrixHomoStamped',taskLW.featureDes.position,'/hand_pose_publisher/left_hand_ref_pose')
-
-def followMarker():
-	createRosExport('vector3Stamped',taskGAZE.proj.point3D,'/aruco_single/position')
-
-def followHand():
-	createRosExport('vector3Stamped',taskGAZE.proj.point3D,'/hand_pose_publisher/head_ref_point')
-
-def gotoMarker3D():
-	createRosExport('matrixHomoStamped',taskRW.featureDes.position,'/aruco_single/transform')
-	taskRW.feature.selec.value = 111
-
-def gotoMarker6D():
-	createRosExport('matrixHomoStamped',taskRW.featureDes.position,'/aruco_single/transform')
-	taskRW.feature.selec.value = 111111
-
-def speedUp(gainvalue):
-	taskRW.task.controlGain.value = gainvalue
-	taskLW.task.controlGain.value = gainvalue
-
-def avoidMarker():
-	createRosExport('matrixHomoStamped',taskDAMPstatic.task.p2_arm_right_tool,'/aruco_single/transform')
-
 def basicStack():
 	# Basic stack
 	push(taskJL)
 	solver.addContact(taskBASE)
-    
-dynTest = DynamicOppointModifier('bla')
-staticOp = DynamicOppointModifier('static')
-robot.dynamic.createOpPoint('arm_right_tool_joint','arm_right_tool_joint')
-plug(robot.dynamic.arm_right_tool_joint, staticOp.positionIN)
-plug(robot.dynamic.Jarm_right_tool_joint, staticOp.jacobianIN)
-staticOp.transformationSig.value = (0,0,0)
-
-'''
-taskDAMPstatic = MetaTaskDynamicVelocityDamping('velDampstatic', 0.1, 0.07)
-taskDAMPstatic.task.set_avoiding_objects('arm_right_tool')
-plug(robot.dynamic.arm_right_tool_joint, taskDAMPstatic.task.p1_arm_right_tool)
-plug(robot.dynamic.Jarm_right_tool_joint, taskDAMPstatic.task.jVel_arm_right_tool)
-collision_point = (0.2,-0.2,1.1)
-p2_point = goalDef(collision_point)
-taskDAMPstatic.task.p2_arm_right_tool.value = matrixToTuple(p2_point)
-'''
 
 collision_objects = ['arm_right_7_joint','torso_2_joint', 'torso_1_joint', 'arm_left_7_joint', 'arm_right_5_joint', 'arm_left_5_joint', 'arm_right_3_joint', 'arm_left_3_joint', 'head_1_joint', 'arm_right_2_joint', 'arm_left_2_joint']
 entFCL = DynamicGraphFCL('entFCL')
