@@ -126,6 +126,8 @@ install(DIRECTORY launch
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(FILES
   config/sot_controller.yaml
+  config/self_collision_arm.yaml
+  config/self_collision_full.yaml
 #   # myfile2
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
 )
