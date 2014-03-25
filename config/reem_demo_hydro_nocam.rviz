@@ -14,6 +14,8 @@ Panels:
         - /MarkerArray2
         - /MarkerArray3
         - /MarkerArray4
+        - /MarkerArray5
+        - /MarkerArray5/Status1
       Splitter Ratio: 0.718978
     Tree Height: 608
   - Class: rviz/Selection
@@ -500,7 +502,7 @@ Visualization Manager:
       TF Prefix: ""
       Update Interval: 0
       Value: true
-      Visual Enabled: false
+      Visual Enabled: true
     - Class: rviz/TF
       Enabled: true
       Frame Timeout: 15
@@ -604,24 +606,6 @@ Visualization Manager:
           Value: true
         camera_link:
           Value: true
-        capsule_originarm_left_3_joint:
-          Value: true
-        capsule_originarm_left_5_joint:
-          Value: true
-        capsule_originarm_left_7_joint:
-          Value: true
-        capsule_originarm_right_3_joint:
-          Value: true
-        capsule_originarm_right_5_joint:
-          Value: true
-        capsule_originarm_right_7_joint:
-          Value: true
-        capsule_originhead_1_joint:
-          Value: true
-        capsule_origintorso_1_joint:
-          Value: true
-        capsule_origintorso_2_joint:
-          Value: true
         caster_left_1_link:
           Value: true
         caster_left_2_link:
@@ -683,24 +667,6 @@ Visualization Manager:
         head_sonar_16_link:
           Value: true
         l_hand_goal:
-          Value: true
-        op_point_sotarm_left_3_joint:
-          Value: true
-        op_point_sotarm_left_5_joint:
-          Value: true
-        op_point_sotarm_left_7_joint:
-          Value: true
-        op_point_sotarm_right_3_joint:
-          Value: true
-        op_point_sotarm_right_5_joint:
-          Value: true
-        op_point_sotarm_right_7_joint:
-          Value: true
-        op_point_sothead_1_joint:
-          Value: true
-        op_point_sottorso_1_joint:
-          Value: true
-        op_point_sottorso_2_joint:
           Value: true
         r_hand_goal:
           Value: true
@@ -892,7 +858,7 @@ Visualization Manager:
       Marker Topic: /rviz_marker/capsules
       Name: MarkerArray
       Namespaces:
-        {}
+        /: true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -914,6 +880,14 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /rviz_marker_closest_points/closest_points_p2
+      Name: MarkerArray
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /rviz_marker/external_collision
       Name: MarkerArray
       Namespaces:
         {}
@@ -943,17 +917,17 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.157
+      Distance: 2.07294
       Focal Point:
-        X: -0.0440804
-        Y: 0.0603047
-        Z: 1.06339
+        X: -0.00577651
+        Y: 0.181179
+        Z: 1.03727
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.584797
+      Pitch: 0.279794
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.20188
+      Yaw: 6.03187
     Saved: ~
 Window Geometry:
   Displays:
@@ -971,5 +945,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 926
-  X: 108
-  Y: 67
+  X: 58
+  Y: 26
