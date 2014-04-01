@@ -44,8 +44,10 @@
 # include <dynamic-graph/debug.h>
 # include "soth/debug.hpp"
 # include <sot/core/exception-factory.hh>
-#include <sot/core/exception-feature.hh>
+# include <sot/core/exception-feature.hh>
 # include <dynamic-graph/all-commands.h>
+
+#include <dynamic-graph/pool.h>
 
 
 
@@ -82,7 +84,7 @@ const std::string SotDevice::CLASS_NAME = "SotDevice";
 
 SotDevice::SotDevice(const std::string& entityName, const std::size_t num_increments = 1):
     dynamicgraph::sot::Device(entityName),
-    velocitySOUT("SotDevice("+entityName+")::output(vector)::velocity"),
+    velocitySOUT("SotDevice("+entityName+")::output(vector)::velocity_debug_delete_this"),
     dtSOUT("SotDevice("+entityName+")::output(double)::dt"),
     status_(false),
     period_(0.001),
@@ -93,6 +95,7 @@ SotDevice::SotDevice(const std::string& entityName, const std::size_t num_increm
     r_(100)
 {
     // Register signals into the entity.
+    dynamicgraph::PoolStorage::getInstance()->writeGraph("graphic_debug");
     signalRegistration(velocitySOUT);
     signalRegistration(dtSOUT);
 }

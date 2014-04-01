@@ -4,7 +4,7 @@ project(sot_controller)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS controller_interface controller_manager dynamic_graph_bridge forward_command_controller realtime_tools ros_sot_robot_model roscpp rospy urdf )
+find_package(catkin REQUIRED COMPONENTS controller_interface controller_manager dynamic_graph_bridge forward_command_controller realtime_tools ros_sot_robot_model roscpp rospy urdf dynamic-graph dynamic-graph-python sot-core sot-dyninv)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -27,8 +27,7 @@ include_directories(${PYTHON_INCLUDE_DIRS})
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES sot_controller
-  CATKIN_DEPENDS controller_interface controller_manager dynamic_graph_bridge forward_command_controller realtime_tools ros_sot_robot_model roscpp rospy urdf
-  DEPENDS dynamic-graph dynamic-graph-python sot-core sot-dyninv
+  CATKIN_DEPENDS controller_interface controller_manager dynamic_graph_bridge forward_command_controller realtime_tools ros_sot_robot_model roscpp rospy urdf dynamic-graph dynamic-graph-python sot-core sot-dyninv
 )
 
 ###########
@@ -78,15 +77,6 @@ set(PKG_CONFIG_ADDITIONAL_VARIABLES
   plugindir
 )
 
-add_required_dependency(dynamic-graph)
-add_required_dependency(dynamic-graph-python)
-add_required_dependency(sot-core)
-add_required_dependency(sot-dyninv)
-
-pkg_config_use_dependency(sot_controller "dynamic-graph")
-pkg_config_use_dependency(sot_controller "dynamic-graph-python")
-pkg_config_use_dependency(sot_controller "sot-core")
-pkg_config_use_dependency(sot_controller "sot-dyninv")
 
 
 ############
