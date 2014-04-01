@@ -1,7 +1,7 @@
 # Create the reem robot model and a solver for the stack of tasks
 
 print('loading sot robot model')
-from sot_robot.prologue import robot, solver
+from .sot_robot.prologue import robot, solver
 
 print('robot got created')
 
