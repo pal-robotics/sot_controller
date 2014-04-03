@@ -1,4 +1,4 @@
-from sot_robot.prologue import solver
+from sot_ros_api.sot_robot.prologue import solver
 
 def push(task):
     if isinstance(task,str): taskName=task
@@ -11,7 +11,7 @@ def pop(task):
     elif "task" in task.__dict__:  taskName=task.task.name
     else: taskName=task.name
     if taskName in solver.toList(): solver.rm(taskName)
-    
+
 def err2file(task,filename,mode="a"):
     out_file = open(filename,mode)
     out_file.write(task.name+"\n")
