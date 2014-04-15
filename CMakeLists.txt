@@ -7,6 +7,7 @@ project(sot_controller)
 find_package(catkin
   REQUIRED
   COMPONENTS
+    sot_cmake
     controller_interface
     controller_manager
     dynamic_graph_bridge
@@ -94,8 +95,8 @@ target_link_libraries(sot_controller_test
 
 
 # LAAS CMAKE CONFIGURATION
-include(cmake/base.cmake)
-include(cmake/python.cmake)
+include(${SOT_CMAKE_DIR}/base.cmake)
+include(${SOT_CMAKE_DIR}/python.cmake)
 
 set(LIBRARY_OUTPUT_PATH ${CATKIN_DEVEL_PREFIX}/lib)
 set(CMAKE_INSTALL_RPATH "${LIBRARY_OUTPUT_PATH}")
