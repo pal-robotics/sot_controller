@@ -84,7 +84,7 @@ const std::string SotDevice::CLASS_NAME = "SotDevice";
 
 SotDevice::SotDevice(const std::string& entityName, const std::size_t num_increments = 1):
     dynamicgraph::sot::Device(entityName),
-    velocitySOUT("SotDevice("+entityName+")::output(vector)::velocity_debug_delete_this"),
+    velocitySOUT("SotDevice("+entityName+")::output(vector)::velocity"),
     dtSOUT("SotDevice("+entityName+")::output(double)::dt"),
     status_(false),
     period_(0.001),
@@ -95,7 +95,7 @@ SotDevice::SotDevice(const std::string& entityName, const std::size_t num_increm
     r_(100)
 {
     // Register signals into the entity.
-    dynamicgraph::PoolStorage::getInstance()->writeGraph("graphic_debug");
+
     signalRegistration(velocitySOUT);
     signalRegistration(dtSOUT);
 }

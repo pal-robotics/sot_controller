@@ -16,7 +16,7 @@ from utilities.kinematics import *
 from utilities.sot import *
 from utilities.tasks import *
 from utilities.rosinterface import *
-from dynamic_graph.dynamic_graph_signal_convert import DynamicGraphSignalConverter
+#from dynamic_graph.dynamic_graph_signal_convert import DynamicGraphSignalConverter
 # Python modules
 import time
 import numpy

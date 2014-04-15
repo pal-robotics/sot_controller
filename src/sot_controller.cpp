@@ -272,6 +272,7 @@ void SotController::update(const ros::Time& time, const ros::Duration& period) {
         for (stdVector_t::size_type i = 0; i < joints_.size(); ++i){
             publisher_->msg_.position[i] = position_[i];
             publisher_->msg_.velocity[i] = velocity_[i];
+            std::cerr<<"v :"<<velocity_[i]<<std::endl;
         }
         publisher_->unlockAndPublish();
     }

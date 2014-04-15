@@ -29,5 +29,5 @@
   	</group>
 
 	<!-- fire up your favourite demo! -->
-	<node name="run_command" pkg="dynamic_graph_bridge" type="run_command" ns="sot_controller" args="$(find sot_controller)/python_code/demo/$(arg demofile)" output="screen"/>
+	<node name="run_command" pkg="dynamic_graph_bridge" type="run_command" ns="sot_controller" args="$(find sot_controller)/sot_ros_api/demo/$(arg demofile)" output="screen"/>
 </launch>
