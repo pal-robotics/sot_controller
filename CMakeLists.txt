@@ -136,10 +136,14 @@ install(DIRECTORY launch
    FILES_MATCHING PATTERN "*.launch"
 )
 
+## copy python demofiles
+install(DIRECTORY demofiles
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+   FILES_MATCHING PATTERN "*.py"
+)
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(FILES
   config/sot_controller.yaml
-#   # myfile2
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
 )
 

@@ -3,6 +3,7 @@ from dynamic_graph.sot.core.meta_tasks import *
 from dynamic_graph.sot.core.meta_tasks_kine import *
 from dynamic_graph.sot.core.meta_task_posture import MetaTaskKinePosture
 from dynamic_graph.sot.core.meta_task_visual_point import MetaTaskVisualPoint
+from dynamic_graph.sot.core.meta_task_grasping_point import MetaTaskGraspingPoint
 from dynamic_graph.sot.core.meta_task_velocity_damping import MetaTaskVelocityDamping
 from dynamic_graph.sot.core.meta_task_joint_weights import MetaTaskJointWeights
 from dynamic_graph.sot.dyninv.task_joint_limit_clamping import TaskJointLimitClamping
@@ -11,8 +12,7 @@ from dynamic_graph.sot.core.meta_task_dyn_oppoint_modifier import MetaTaskDynami
 from sot_ros_api.sot_robot.prologue import robot, solver
 from dynamic_graph.sot.dyninv import *
 
-from .sot import pop
-from .sot import push
+from sot_ros_api.utilities.sot import pop, push
 
 import numpy
 import time
@@ -20,7 +20,7 @@ import time
 class MetaTaskIneqKine6d(MetaTaskKine6d):
     def createTask(self):
         self.task = TaskInequality('inequalitytask'+self.name)
-
+        
     def createFeatures(self):
         self.feature    = FeaturePoint6d('ineqfeature'+self.name)
         self.featureDes = FeaturePoint6d('ineqfeature'+self.name+'_ref')
@@ -33,7 +33,7 @@ def createJointLimitsTask(gain = 1, dt = None):
     taskJL = TaskJointLimits('jointLimits')
     plug(robot.dynamic.position, taskJL.position)
     """
-    The internal gain for the joint limits task is defined as 1/gain, i.e. is used to limit the maximum reachable
+    The internal gain for the joint limits task is defined as 1/gain, i.e. is used to limit the maximum reachable 
     velocity in a single time interval (dt).
     A high value can be used to limit oscillations around the goal point but it slows down the motion.
     """
@@ -55,7 +55,7 @@ def createJointLimitDampingTask(gain= 100, dt= None):
     taskJL = TaskJointLimitClamping('jointLimitsClamping')
     plug(robot.dynamic.position, taskJL.position)
     """
-    The internal gain for the joint limits task is defined as 1/gain, i.e. is used to limit the maximum reachable
+    The internal gain for the joint limits task is defined as 1/gain, i.e. is used to limit the maximum reachable 
     velocity in a single time interval (dt).
     A high value can be used to limit oscillations around the goal point but it slows down the motion.
     """
@@ -98,7 +98,7 @@ def createVelocityDampingTask(taskName, jointName, collisionCenter, di, ds):
 #     taskVelDamp.ds.value = 0.1
 #     taskVelDamp.dt.value = 0.001
 #     taskVelDamp.controlGain.value = 1
-#
+#     
 #     taskVelDamp.p2.value = matrixToTuple(goalP2)
 #     robot.dynamic.Jarm_right_tool_joint.recompute(0)
 #     robot.dynamic.arm_right_tool_joint.recompute(0)
@@ -151,9 +151,14 @@ def safePosition():
     return taskSafePosition
 
 def createGazeTask(jointName):
-    taskGaze = MetaTaskVisualPoint('gaze',robot.dynamic,jointName,jointName)
+    taskGaze = MetaTaskVisualPoint('gaze'+str(jointName),robot.dynamic, jointName, jointName)
     taskGaze.featureDes.xy.value = (0,0)
     return taskGaze
+
+def createGraspingTask(jointName):
+    taskGrasp = MetaTaskGraspingPoint('grasp'+str(jointName), robot.dynamic, jointName, jointName)
+    taskGrasp.featureDes.xy.value = (0,0)
+    return taskGrasp
 
 def createComEqTask(gain = 1):
     taskCom = MetaTaskKineCom(robot.dynamic)
@@ -178,7 +183,7 @@ def createComIneqTask(gain = 1, dt = 0.001, referenceInf = (-1,-1, 0), reference
 
 def gotoNdComp(task,position,selec=None,gain=None,resetJacobian=True,comp=[[0,1,0],[0,0,1],[1,0,0]]):
     '''
-    gotoNdComp takes care of the different frame orientations used in jrl-dynamics.
+    gotoNdComp takes care of the different frame orientations used in jrl-dynamics. 
     Be careful about the comp matrix, it is specific for reem and reemc (and could be different among
     different joint frames)
     '''
