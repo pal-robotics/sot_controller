@@ -5,7 +5,7 @@ Created on 30 Aug 2013
 '''
 print 'importing rosinterface'
 from dynamic_graph.ros import *
-from sot_robot.prologue import robot
+from sot_ros_api.sot_robot.prologue import robot
 from dynamic_graph import plug
 # import roslib; roslib.load_manifest("interactive_markers")
 # import rospy
@@ -17,7 +17,7 @@ importcounter = 0
 
 # Export from ROS
 def createRosExport(type, exportSignal, topic):
-    # get global ros instance  
+    # get global ros instance
     global exportcounter
     exportcounter += 1
     rosExportSignalIntern = 'rosExportIntern'+str(exportcounter)
