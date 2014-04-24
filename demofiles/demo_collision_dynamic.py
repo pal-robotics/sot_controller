@@ -44,6 +44,7 @@ plug(robot.dynamic.arm_right_tool_joint, staticOp.positionIN)
 plug(robot.dynamic.Jarm_right_tool_joint, staticOp.jacobianIN)
 staticOp.transformationSig.value = (0,0,0)
 
+'''
 taskDAMPstatic = MetaTaskDynamicVelocityDamping('velDampstatic', 0.1, 0.07)
 taskDAMPstatic.task.set_avoiding_objects('arm_right_tool')
 plug(robot.dynamic.arm_right_tool_joint, taskDAMPstatic.task.p1_arm_right_tool)
@@ -51,7 +52,7 @@ plug(robot.dynamic.Jarm_right_tool_joint, taskDAMPstatic.task.jVel_arm_right_too
 collision_point = (0.2,-0.2,1.1)
 p2_point = goalDef(collision_point)
 taskDAMPstatic.task.p2_arm_right_tool.value = matrixToTuple(p2_point)
-
+'''
 
 collision_objects = ['arm_right_3_joint', 'arm_right_7_joint', 'arm_right_5_joint','torso_1_joint','arm_left_3_joint', 'arm_left_7_joint', 'arm_left_5_joint']
 entFCL = DynamicGraphFCL('entFCL')
