@@ -1,9 +1,6 @@
 # Create the reem robot model and a solver for the stack of tasks
 
-print('loading sot robot model')
 from .sot_robot.prologue import robot, solver
-
-print('robot got created')
 
 # Useful modules to interact with the stack of tasks
 # They should be shared between the demos...
@@ -14,9 +11,12 @@ from dynamic_graph import writeGraph
 # User defined modules
 from utilities.kinematics import *
 from utilities.sot import *
-from utilities.tasks import *
+#from utilities.tasks import *
 from utilities.rosinterface import *
-#from dynamic_graph.dynamic_graph_signal_convert import DynamicGraphSignalConverter
+
+
+from sot_tasks import *
+
 # Python modules
 import time
 import numpy
