@@ -4,7 +4,7 @@
 from sot_ros_api import *
 
 from dynamic_graph.dynamic_graph_fcl import DynamicGraphFCL
-from dynamic_graph.sot.core.meta_task_dynamic_velocity_damping import MetaTaskDynamicVelocityDamping
+from sot_tasks.meta_task_dynamic_velocity_damping import MetaTaskDynamicVelocityDamping
 from dynamic_graph.sot.core.dyn_oppoint_modifier import DynamicOppointModifier
 
 def followTrajectory():
