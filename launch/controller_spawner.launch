@@ -11,9 +11,6 @@
   <!-- Set the python path -->
   <env name="PYTHONPATH" value="$(env PYTHONPATH):$(find sot_controller)/python_code" />
 
-  <!-- Create the floor frame -->
-  <include file="$(find sot_controller)/launch/floor_frame_publisher.launch"/>
-
   <!-- Load the configuration file of sot controller -->
   <rosparam command="load" file="$(find sot_controller)/config/sot_controller.yaml" />
   
@@ -31,5 +28,9 @@
     <param name="publish_frequency" type="double" value="50.0" />
     <param name="tf_prefix" type="string" value="" />
   </node>
-  
+ 
+  <!-- Create the floor frame -->
+  <include file="$(find sot_controller)/launch/floor_frame_publisher.launch"/>
+
+ 
 </launch>
