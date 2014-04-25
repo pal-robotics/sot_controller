@@ -141,6 +141,13 @@ install(DIRECTORY demofiles
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
    FILES_MATCHING PATTERN "*.py"
 )
+
+## copy floor frame publisher
+install(PROGRAMS scripts/floor_frame_publisher.py
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+   #USE_SOURCE_PERMISSIONS
+)
+
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 install(FILES
   config/sot_controller.yaml
