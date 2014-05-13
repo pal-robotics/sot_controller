@@ -14,7 +14,6 @@ from utilities.sot import *
 #from utilities.tasks import *
 from utilities.rosinterface import *
 
-
 from sot_tasks import *
 
 # Python modules
