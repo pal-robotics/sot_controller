@@ -8,23 +8,30 @@ The stack is composed by:
 @author: Gennaro Raiola, Karsten Knese
 '''
 from sot_ros_api import *
+from sot_tasks.startup_tasks import *
 
 def resetPosition():
     pop(taskRW)
     push(taskRESET)
+'''necessary for setting up the basic stack
+1.) joint limits
+2.) base contact (setting free flyer)
+3.) self-collision activated (boolean flag)
+'''
+basicStack()
 
-quat = numpy.array([-0.377,-0.06,-0.142,0.91])
-xyz = numpy.array([0.35,-0.3,1.25])
+#quat = numpy.array([-0.377,-0.06,-0.142,0.91])
+#xyz = numpy.array([0.35,-0.3,1.25])
+#goal_rw = goalDef(xyz,quat)
 
-goal_rw = goalDef(xyz,quat)
-
-taskJL = createJointLimitsTask(100)
-taskBASE = createEqualityTask('baseContact','base_joint',10)
-taskRW = createEqualityTask('rightWrist', 'arm_right_7_joint')
+taskRW = createEqualityTask('rightWrist', 'hand_right_sot_grasping_frame_joint')
 #taskRESET = createJointsTask()
 
-push(taskJL)
-solver.addContact(taskBASE)
 push(taskRW)
+gotoNd(taskRW,(0.3,-0.3,1.2),'111111',10)
 
-gotoNdComp(taskRW,goal_rw,'000111',1)
+getEntFCL().enableCapsuleTopic(True)
+createRosImport('matrixHomo',taskSC.task.signal('p1_arm_right_7_jointtorso_1_joint') , '/sot_controller/p1_arm_right_7_jointtorso_1_joint')
+createRosImport('matrixHomo',taskSC.task.signal('p2_arm_right_7_jointtorso_1_joint') , '/sot_controller/p2_arm_right_7_jointtorso_1_joint')
+
+
