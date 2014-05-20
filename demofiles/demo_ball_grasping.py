@@ -19,6 +19,7 @@ def speedUp(gainvalue):
     taskRW.task.controlGain.value = gainvalue
 
 def grasp():
+    gotoNd(taskRW,(0.4,0.0,1.3),'111',1)
     pop(taskRW_safe)
     push(taskGRASP)
 
@@ -42,9 +43,7 @@ taskWEIGHTS = createWeightsTask(diag)
 taskGRASP = createGraspingTask('hand_right_sot_grasping_frame_joint')
 gotoNd(taskGRASP, (0.3,-0.3,1.3),'111111',1)
 basicStack()
-#gotoNd(taskRW,(0.4,0.0,1.3),'111',1)
-#taskGRASP.task.add(taskRW.feature.name)
-#push(taskRW)
-push(taskGRASP)
 
-#followMarker()
+basicStack()
+taskGRASP.task.add(taskRW.feature.name)
+push(taskPos)
