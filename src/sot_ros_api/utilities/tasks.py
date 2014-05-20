@@ -135,12 +135,13 @@ def zeroPosition():
     plug(robot.dynamic.position,taskZeroPosition.task.position)
     return taskZeroPosition
 
-def safePosition():
+def safePosition(gain=0.01):
     diag = None
-    gain = 0.01
+    gain = gain
     safePos = numpy.zeros(robot.dimension)
     safePos[9] = 0.2
     safePos[16] = 0.2
+    safePos = (0,0,0,0,0,0,-0.4, 0.4, -0.1, 0.6109, 0, 0, 0, -0.4, 0.4, -0.1, 0.6109, 0, 0, 0, 0.0, 0.0, 0.0, 0.0)
     jointsPos = tuple(safePos)
     selec = toFlags(range(6,robot.dimension))
     taskSafePosition = MetaTaskJointWeights('safePos',selec,robot,diag,gain,0)
@@ -199,16 +200,16 @@ def gotoNdComp(task,position,selec=None,gain=None,resetJacobian=True,comp=[[0,1,
     if 'resetJacobianDerivative' in task.task.__class__.__dict__.keys() and resetJacobian:
         task.task.resetJacobianDerivative()
 
-def gotoSafePos():
+def gotoSafePos(sleeptime=5, gain=0.01):
     '''
     Go to the safe position
     In this position the hands are away from the base
     Wait some time to reach the position
     '''
     solver.clear()
-    safePos = safePosition()
+    safePos = safePosition(gain)
     push(safePos)
-    time.sleep(5)
+    time.sleep(sleeptime)
     pop(safePos)
 
 def gotoZeroPos():
