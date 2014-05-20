@@ -20,7 +20,6 @@ def speedUp(gainvalue):
 
 def grasp():
     gotoNd(taskRW,(0.4,0.0,1.3),'111',1)
-    taskGRASP.goto3D((0.4,0.0,1.3),1)
     pop(taskRW_safe)
     push(taskGRASP)
 
@@ -30,23 +29,21 @@ def resetRW():
 
 # Create basic tasks
 taskRW = createEqualityTask('rightWrist', 'hand_right_sot_grasping_frame_joint')
+
 taskRW_safe = createEqualityTask('rightWrist_safe', 'arm_right_tool_joint')
 quat = numpy.array([0.0,0.7071067811865476,0.0,0.7071067811865476])
 xyz = numpy.array([-0.1,-0.3,1.0])
 rw_safe_goal =  goalDef(xyz, quat)
 gotoNd(taskRW_safe, rw_safe_goal, '111111',10)
 
-taskPOS = createEqualityTask('rightWrist', 'arm_right_tool_joint')
-gotoNd(taskPOS, (-0.2,-0.3,1.1),'111111',10)
 
 diag = (0,0,0,0,0,0,1.36499,1.49997,0.677897,0.636507,0.170576,0.234007,0.120986,0.0156722,0.0213592,0.687228,0.63189,0.172151,0.260947,0.120986,0.0156722,0.0213592,0.511255,0.520094)
 taskWEIGHTS = createWeightsTask(diag)
 
 taskGRASP = createGraspingTask('hand_right_sot_grasping_frame_joint')
+gotoNd(taskGRASP, (0.3,-0.3,1.3),'111111',1)
+basicStack()
 
 basicStack()
 taskGRASP.task.add(taskRW.feature.name)
 push(taskPos)
-#push(taskGRASP)
-
-#followMarker()
