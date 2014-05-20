@@ -14,8 +14,13 @@ def followTrajectory():
 	createRosExport('matrixHomoStamped',taskRW.featureDes.position,'/hand_pose_publisher/right_hand_ref_pose')
 	taskRW.feature.selec.value = 111
 
+<<<<<<< .merge_file_Y4cxxA
 def followBall():
 	createRosExport('vector3Stamped',taskGAZE.proj.point3D,'/ball_grasping/ball_point')
+=======
+def followMarker():
+	createRosExport('vector3Stamped',taskHANDGAZE.proj.point3D,'/ball_grasping/ball_point')
+>>>>>>> .merge_file_Wy2kwH
 
 def speedUp(gainvalue):
     taskRW.task.controlGain.value = gainvalue
@@ -60,6 +65,13 @@ taskGRASP = createEqualityTask('hand_right_sot_grasping_frame_joint', 'hand_righ
 gotoNd(taskGRASP, (0.3,-0.3,1.3),'111111',10)
 
 basicStack()
+<<<<<<< .merge_file_Y4cxxA
 push(taskGAZE)
+=======
+#gotoNd(taskRW,(0.4,0.0,1.3),'111',1)
+#taskGRASP.task.add(taskRW.feature.name)
+#push(taskRW)
+>>>>>>> .merge_file_Wy2kwH
 push(taskGRASP)
 push(taskWEIGHTS)
+#followMarker()
