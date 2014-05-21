@@ -1,0 +1,16 @@
+<launch>
+	<arg name="trj_publisher" value="true" />
+
+  	<!-- start the trj publisher -->
+	<group if="$(arg trj_publisher)">
+		<include file="$(find trj_publisher)/launch/trj_publisher.launch" />
+	</group>
+
+	<!-- start the ball detection with the camera -->
+	<include file="$(find reem_ball_perception)/launch/move_head_towards_largest_circle_rectified_stereo.launch" >
+		<arg name="ref_frame" value="/base_link" />
+	</include>	
+	<!-- fire up your favourite demo! -->
+	<node name="run_command" pkg="dynamic_graph_bridge" type="run_command" ns="sot_controller" args="$(find sot_controller)/demofiles/demo_ball_grasping_automatica.py" output="screen"/>
+	  
+</launch>
