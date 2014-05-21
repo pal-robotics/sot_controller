@@ -11,16 +11,11 @@ from dynamic_graph.sot.core.dyn_oppoint_modifier import DynamicOppointModifier
 import time
 
 def followTrajectory():
-	createRosExport('matrixHomoStamped',taskRW.featureDes.position,'/hand_pose_publisher/right_hand_ref_pose')
+	createRosExport('matrixHomoStamped',taskRW.featureDes.position,'/sot_controller/ball_grasping/ball_pose')
 	taskRW.feature.selec.value = 111
 
-<<<<<<< .merge_file_Y4cxxA
 def followBall():
-	createRosExport('vector3Stamped',taskGAZE.proj.point3D,'/ball_grasping/ball_point')
-=======
-def followMarker():
-	createRosExport('vector3Stamped',taskHANDGAZE.proj.point3D,'/ball_grasping/ball_point')
->>>>>>> .merge_file_Wy2kwH
+	createRosExport('vector3Stamped',taskGAZE.proj.point3D,'/sot_controller/ball_grasping/ball_position')
 
 def speedUp(gainvalue):
     taskRW.task.controlGain.value = gainvalue
@@ -41,11 +36,10 @@ def resetJoints():
     solver.clear()
     gotoSafePos(3,0.1)
     basicStack()
+    push(taskGAZE)
 
 
 # Create basic tasks
-taskRW = createEqualityTask('rightWrist', 'hand_right_sot_grasping_frame_joint')
-
 taskRW_safe = createEqualityTask('rightWrist_safe', 'arm_right_tool_joint')
 quat = numpy.array([0.0,0.7071067811865476,0.0,0.7071067811865476])
 xyz = numpy.array([-0.1,-0.3,1.0])
@@ -65,13 +59,6 @@ taskGRASP = createEqualityTask('hand_right_sot_grasping_frame_joint', 'hand_righ
 gotoNd(taskGRASP, (0.3,-0.3,1.3),'111111',10)
 
 basicStack()
-<<<<<<< .merge_file_Y4cxxA
 push(taskGAZE)
-=======
-#gotoNd(taskRW,(0.4,0.0,1.3),'111',1)
-#taskGRASP.task.add(taskRW.feature.name)
-#push(taskRW)
->>>>>>> .merge_file_Wy2kwH
 push(taskGRASP)
 push(taskWEIGHTS)
-#followMarker()
