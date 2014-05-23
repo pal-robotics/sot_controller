@@ -24,14 +24,14 @@ basicStack()
 #xyz = numpy.array([0.35,-0.3,1.25])
 #goal_rw = goalDef(xyz,quat)
 
-taskRW = createEqualityTask('rightWrist', 'hand_right_sot_grasping_frame_joint')
+taskRW = createEqualityTask('rightWrist', 'hand_right_grasping_frame_joint')
 #taskRESET = createJointsTask()
 
 push(taskRW)
 gotoNd(taskRW,(0.3,-0.3,1.2),'111111',10)
-
+'''
 getEntFCL().enableCapsuleTopic(True)
 createRosImport('matrixHomo',taskSC.task.signal('p1_arm_right_7_jointtorso_1_joint') , '/sot_controller/p1_arm_right_7_jointtorso_1_joint')
 createRosImport('matrixHomo',taskSC.task.signal('p2_arm_right_7_jointtorso_1_joint') , '/sot_controller/p2_arm_right_7_jointtorso_1_joint')
-
+'''
 
