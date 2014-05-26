@@ -18,20 +18,21 @@ def followMarker():
 def speedUp(gainvalue):
     taskRW.task.controlGain.value = gainvalue
 
-def grasp():
-    gotoNd(taskRW,(0.4,0.0,1.3),'111',1)
+def grasp(pos=(0.3,-0.1,1.3), gotoGain=1, lookGain=10):
+    gotoNd(taskGRASP,pos,'100111',gotoGain)
+    taskLOOK.goto3D((0.3,-0.1,1.3),lookGain)
     pop(taskRW_safe)
+    push(taskLOOK)
     push(taskGRASP)
 
 def resetRW():
     pop(taskGRASP)
+    pop(taskLOOK)
     push(taskRW_safe)
 
 # Create basic tasks
-taskRW = createEqualityTask('rightWrist', 'hand_right_sot_grasping_frame_joint')
-
 taskRW_safe = createEqualityTask('rightWrist_safe', 'arm_right_tool_joint')
-quat = numpy.array([0.0,0.7071067811865476,0.0,0.7071067811865476])
+quat = numpy.array([0.0,0,0.0,0.7071067811865476])
 xyz = numpy.array([-0.1,-0.3,1.0])
 rw_safe_goal =  goalDef(xyz, quat)
 gotoNd(taskRW_safe, rw_safe_goal, '111111',10)
@@ -40,10 +41,13 @@ gotoNd(taskRW_safe, rw_safe_goal, '111111',10)
 diag = (0,0,0,0,0,0,1.36499,1.49997,0.677897,0.636507,0.170576,0.234007,0.120986,0.0156722,0.0213592,0.687228,0.63189,0.172151,0.260947,0.120986,0.0156722,0.0213592,0.511255,0.520094)
 taskWEIGHTS = createWeightsTask(diag)
 
-taskGRASP = createGraspingTask('hand_right_sot_grasping_frame_joint')
-gotoNd(taskGRASP, (0.3,-0.3,1.3),'111111',1)
+grasping_joint = 'hand_right_sot_grasping_frame_joint'
+
+#taskLOOK = createGazeTask(grasping_joint)
+taskLOOK = createGraspingTask(grasping_joint)
+taskLOOK.goto3D((0.3,-0.3,1.3),100)
+taskGRASP = createEqualityTask(grasping_joint, grasping_joint)
+gotoNd(taskGRASP, (0.3,-0.3,1.3),'111',1)
 basicStack()
 
-basicStack()
-taskGRASP.task.add(taskRW.feature.name)
-push(taskPos)
+createRosImport('matrixHomoStamped', taskGRASP.featureDes.position, '/sot_controller/grasp_goal_transform')
